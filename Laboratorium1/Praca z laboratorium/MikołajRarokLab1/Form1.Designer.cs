@@ -46,7 +46,7 @@ namespace MikołajRarokLab1
             // 
             // buttonColor
             // 
-            this.buttonColor.Location = new System.Drawing.Point(12, 12);
+            this.buttonColor.Location = new System.Drawing.Point(12, 19);
             this.buttonColor.Name = "buttonColor";
             this.buttonColor.Size = new System.Drawing.Size(113, 62);
             this.buttonColor.TabIndex = 0;
@@ -58,7 +58,7 @@ namespace MikołajRarokLab1
             // 
             this.buttonChangeOtherButton2.Location = new System.Drawing.Point(12, 367);
             this.buttonChangeOtherButton2.Name = "buttonChangeOtherButton2";
-            this.buttonChangeOtherButton2.Size = new System.Drawing.Size(113, 73);
+            this.buttonChangeOtherButton2.Size = new System.Drawing.Size(113, 67);
             this.buttonChangeOtherButton2.TabIndex = 1;
             this.buttonChangeOtherButton2.Text = "Zmień kolor przycisku powyżej";
             this.buttonChangeOtherButton2.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@ namespace MikołajRarokLab1
             // 
             this.buttonChangeOtherButton1.Location = new System.Drawing.Point(12, 288);
             this.buttonChangeOtherButton1.Name = "buttonChangeOtherButton1";
-            this.buttonChangeOtherButton1.Size = new System.Drawing.Size(113, 73);
+            this.buttonChangeOtherButton1.Size = new System.Drawing.Size(113, 67);
             this.buttonChangeOtherButton1.TabIndex = 2;
             this.buttonChangeOtherButton1.Text = "Zmien kolor przycisku poniżej";
             this.buttonChangeOtherButton1.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@ namespace MikołajRarokLab1
             // 
             this.buttonTextboxColorChange.Location = new System.Drawing.Point(433, 67);
             this.buttonTextboxColorChange.Name = "buttonTextboxColorChange";
-            this.buttonTextboxColorChange.Size = new System.Drawing.Size(113, 62);
+            this.buttonTextboxColorChange.Size = new System.Drawing.Size(113, 70);
             this.buttonTextboxColorChange.TabIndex = 5;
             this.buttonTextboxColorChange.Text = "Przycisk zmieniajacy kolor na podstawie wartości licznika";
             this.buttonTextboxColorChange.UseVisualStyleBackColor = true;

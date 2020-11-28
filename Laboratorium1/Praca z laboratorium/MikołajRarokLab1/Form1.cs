@@ -137,5 +137,6 @@ namespace MikołajRarokLab1
             textBoxMultiply2.Text = product.ToString();
         }
 
+
     }
 }
