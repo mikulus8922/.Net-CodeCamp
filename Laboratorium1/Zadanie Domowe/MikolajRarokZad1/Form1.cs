@@ -22,8 +22,8 @@ namespace MikolajRarokZad1
 
 
         // Statystyki
-        public static double ECTS = 0;
-        public static double Money = 250;
+        public static double ECTS = 5000;
+        public static double Money = 100;
 
 
         // Poziomy ulepszeń        

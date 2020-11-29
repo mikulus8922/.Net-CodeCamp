@@ -38,17 +38,17 @@ namespace MikolajRarokZad1
             this.labelMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelMessage.AutoSize = true;
             this.labelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelMessage.Location = new System.Drawing.Point(83, 9);
+            this.labelMessage.Location = new System.Drawing.Point(12, 9);
             this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(178, 48);
+            this.labelMessage.Size = new System.Drawing.Size(312, 82);
             this.labelMessage.TabIndex = 0;
-            this.labelMessage.Text = "Niestety nie stać\r\ncię na to ulepszenie\r\n";
+            this.labelMessage.Text = "tekst";
+            this.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(87, 76);
+            this.buttonClose.Location = new System.Drawing.Point(79, 94);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(174, 53);
             this.buttonClose.TabIndex = 1;
@@ -68,7 +68,6 @@ namespace MikolajRarokZad1
             this.Text = "...";
             this.Load += new System.EventHandler(this.FormMessage_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
