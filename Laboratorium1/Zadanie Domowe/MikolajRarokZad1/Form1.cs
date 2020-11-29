@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace MikolajRarokZad1
 {
-    public partial class FormMain : Form
+    public partial class FormMain : System.Windows.Forms.Form
     {
-       
+
+        // Zmienne okien pomocniczych
+        public FormMessage formMessage;
+        public FormEventEtrapez formEvent;
+
+
+
         // Statystyki
-        double ECTS = 100000;
-        double ECTSPerClick = 10;
+        public static double ECTS = 100000;
+        public static double Money = 30000;
 
-
-        double Money = 30000;
-        double MoneyPerClick = 10;
-
-
-        double RandomBoost = 0;
 
         // Poziomy ulepszeń        
         int ECTSPerClickLvl = 0;
@@ -31,7 +31,8 @@ namespace MikolajRarokZad1
         int MoneyPerClickLvl = 0;
         int MoneyPerTickLvl = 0;
 
-        int RandomBoostLvl = 0;
+        public int RandomBoostLvl = 0;
+
 
         // Tablice związane z kosztami ulepszeń w formacie
         // {{KosztEctsLvl1,KosztPieniedzyLvl1},
@@ -76,7 +77,15 @@ namespace MikolajRarokZad1
         {100,200}
         };
 
-        
+
+        // Zmienne zwiazane z wydarzeniami
+        Random random = new Random();
+        public static bool IsEventWon;
+
+        bool IsGameWon = false;
+
+        bool IsETrapezEventDone = false;
+
 
 
 
@@ -85,6 +94,10 @@ namespace MikolajRarokZad1
             InitializeComponent();
         }
 
+        
+
+
+
         /// <summary>
         /// Główna pętla gry
         /// </summary>
@@ -92,8 +105,6 @@ namespace MikolajRarokZad1
         /// <param name="e"></param>
         private void timerMain_Tick(object sender, EventArgs e)
         {
-            
-
             ECTS += ECTSPerTick();
             Money += MoneyPerTick();
 
@@ -102,6 +113,58 @@ namespace MikolajRarokZad1
 
             CheckForAvailableGameEvents();
         }
+
+        /// <summary>
+        /// Funkcja zwarająca ilość ECTSów które należy dodać po jednym kliknięciu
+        /// </summary>
+        /// <returns></returns>
+        private double ECTSPerClick()
+        {
+            switch (ECTSPerClickLvl)
+            {
+                case 0:
+                    return 1;
+                case 1:
+                    return 10;
+                case 2:
+                    return 25;
+                case 3:
+                    return 50;
+                case 4:
+                    return 100;
+                case 5:
+                    return 500;
+                default:
+                    return 0;
+            }
+        }
+
+        /// <summary>
+        /// Funkcja zwarająca ilość pieniędzy które należy dodać po jednym kliknięciu
+        /// </summary>
+        /// <returns></returns>
+        private double MoneyPerClick()
+        {
+            switch (MoneyPerClickLvl)
+            {
+                case 0:
+                    return 10;
+                case 1:
+                    return 100;
+                case 2:
+                    return 250;
+                case 3:
+                    return 500;
+                case 4:
+                    return 1000;
+                case 5:
+                    return 5000;
+                default:
+                    return 0;
+            }
+        }
+
+
 
         /// <summary>
         /// Funkcja zwarająca ilość ECTSów które należy dodać po jednym ticku zegara
@@ -122,7 +185,7 @@ namespace MikolajRarokZad1
                 case 4:
                     return 100;
                 case 5:
-                    return 250;
+                    return 500;
                 default:
                     return 0;
             }
@@ -147,18 +210,59 @@ namespace MikolajRarokZad1
                 case 4:
                     return 1000;
                 case 5:
-                    return 2500;
+                    return 5000;
                 default:
                     return 0;
             }
         }
 
         /// <summary>
+        /// Funkcja kalkulujaca czy gra losowa zostala wygrana
+        /// </summary>
+        /// <param name="chancetolose"></param>
+        /// <param name="boostModifier"></param>
+        /// <returns></returns>
+        public bool IsRandomGameWon(int chancetolose, int boostModifier)
+        {
+            int randomValue = random.Next(100) + boostModifier * RandomBoostLvl;
+
+            if (randomValue >= chancetolose)
+                return true;
+            else
+                return false;
+        }
+
+
+        /// <summary>
         /// Funkcja sprawdzajaca i wywołująca eventy
         /// </summary>
         private void CheckForAvailableGameEvents()
         {
-            //Do napisania
+            if(ECTS >= 300000 && IsGameWon == false)
+            {
+                IsGameWon = true;
+                formMessage = new FormMessage();
+                formMessage.text =
+                    "Gratulacje!\n" +
+                    "Udało Ci się\n" +
+                    "zdać semestr!";
+                formMessage.Show();
+            }
+
+            if(ECTS >= 10000 && IsETrapezEventDone == false)
+            {
+                IsETrapezEventDone = true;
+                IsEventWon = IsRandomGameWon(20, 3);
+
+                formEvent = new FormEventEtrapez();
+                formEvent.text=
+                    "Masz możliwość\n" +
+                    "pobrania nielegalnej\n" +
+                    "wersji eTrapeza";
+                formEvent.Show();
+
+            }
+
         }
 
         /// <summary>
@@ -168,7 +272,7 @@ namespace MikolajRarokZad1
         /// <param name="e"></param>
         private void buttonECTS_Click(object sender, EventArgs e)
         {
-            ECTS += ECTSPerClick;
+            ECTS += ECTSPerClick();
             labelECTS.Text = (ECTS/10000).ToString();
         }
 
@@ -179,7 +283,7 @@ namespace MikolajRarokZad1
         /// <param name="e"></param>
         private void buttonWork_Click(object sender, EventArgs e)
         {
-            Money += MoneyPerClick;
+            Money += MoneyPerClick();
             labelMoney.Text = Money.ToString();
         }
 
@@ -202,11 +306,20 @@ namespace MikolajRarokZad1
         {
             if(ECTSPerClickLvl >= 5)
             {
-                // Wypisz w konsoli "Osiągnięto maksymalny poziom"
+                formMessage = new FormMessage();
+                formMessage.text = 
+                    "Osiągnięto maksymalny\n" +
+                    "poziom ulepszenia";
+                formMessage.Show();
+
             } 
             else if(ECTS < ECTSPerClickCosts[ECTSPerClickLvl,0] || Money < ECTSPerClickCosts[ECTSPerClickLvl, 1])
             {
-                // Wypisz w konsoli "Za mało statystyk"
+                formMessage = new FormMessage();
+                formMessage.text =
+                    "Niestety nie stać\n" +
+                    "cię na to ulepszenie";
+                formMessage.Show();
             }
             else
             {
@@ -220,9 +333,9 @@ namespace MikolajRarokZad1
                 if (ECTSPerClickLvl < 5)
                 {
                     buttonECTSPerClickUpgrade.Text =
-                        "Zainwestuj w kolejny do\n" +
+                        "Zainwestuj w kolejny\n" +
                         "kurs eTrapeza\n" +
-                        ECTSPerClickCosts[ECTSPerClickLvl, 0] + " ECTS\n" +
+                        (ECTSPerClickCosts[ECTSPerClickLvl, 0] / 10000) + " ECTS\n" +
                         ECTSPerClickCosts[ECTSPerClickLvl, 1] + " Pieniedzy";
                 }
                 else
@@ -244,11 +357,19 @@ namespace MikolajRarokZad1
         {
             if (ECTSPerTickLvl >= 5)
             {
-                // Wypisz w konsoli "Osiągnięto maksymalny poziom"
+                formMessage = new FormMessage();
+                formMessage.text =
+                    "Osiągnięto maksymalny\n" +
+                    "poziom ulepszenia";
+                formMessage.Show();
             }
             else if (ECTS < ECTSPerTickCosts[ECTSPerTickLvl, 0] || Money < ECTSPerTickCosts[ECTSPerTickLvl, 1])
             {
-                // Wypisz w konsoli "Za mało statystyk"
+                formMessage = new FormMessage();
+                formMessage.text =
+                    "Niestety nie stać\n" +
+                    "cię na to ulepszenie";
+                formMessage.Show();
             }
             else
             {
@@ -264,7 +385,7 @@ namespace MikolajRarokZad1
                     buttonECTSPerTickUpgrade.Text =
                         "Napisz/Ulepsz bota do\n" +
                         "wyszukiwania gotowców na necie\n" +
-                        ECTSPerTickCosts[ECTSPerTickLvl, 0] + " ECTS\n" +
+                        (ECTSPerTickCosts[ECTSPerTickLvl, 0] / 10000) + " ECTS\n" +
                         ECTSPerTickCosts[ECTSPerTickLvl, 1] + " Pieniedzy";
                 }
                 else
@@ -286,11 +407,19 @@ namespace MikolajRarokZad1
         {
             if (RandomBoostLvl >= 5)
             {
-                // Wypisz w konsoli "Osiągnięto maksymalny poziom"
+                formMessage = new FormMessage();
+                formMessage.text =
+                    "Osiągnięto maksymalny\n" +
+                    "poziom ulepszenia";
+                formMessage.Show();
             }
             else if (ECTS < RandomBoostCosts[RandomBoostLvl, 0] || Money < RandomBoostCosts[RandomBoostLvl, 1])
             {
-                // Wypisz w konsoli "Za mało statystyk"
+                formMessage = new FormMessage();
+                formMessage.text =
+                    "Niestety nie stać\n" +
+                    "cię na to ulepszenie";
+                formMessage.Show();
             }
             else
             {
@@ -305,7 +434,7 @@ namespace MikolajRarokZad1
                     buttonRandomBoostUpgrade.Text =
                         "Wizyta u\n" +
                         "wróżbity\n" +
-                        RandomBoostCosts[RandomBoostLvl, 0] + " ECTS\n" +
+                        (RandomBoostCosts[RandomBoostLvl, 0]/10000) + " ECTS\n" +
                         RandomBoostCosts[RandomBoostLvl, 1] + " Pieniedzy";
                 }
                 else
@@ -327,11 +456,19 @@ namespace MikolajRarokZad1
         {
             if (MoneyPerTickLvl >= 5)
             {
-                // Wypisz w konsoli "Osiągnięto maksymalny poziom"
+                formMessage = new FormMessage();
+                formMessage.text =
+                    "Osiągnięto maksymalny\n" +
+                    "poziom ulepszenia";
+                formMessage.Show();
             }
             else if (ECTS < MoneyPerTickCosts[MoneyPerTickLvl, 0] || Money < MoneyPerTickCosts[MoneyPerTickLvl, 1])
             {
-                // Wypisz w konsoli "Za mało statystyk"
+                formMessage = new FormMessage();
+                formMessage.text =
+                    "Niestety nie stać\n" +
+                    "cię na to ulepszenie";
+                formMessage.Show();
             }
             else
             {
@@ -344,16 +481,16 @@ namespace MikolajRarokZad1
                 if (MoneyPerTickLvl < 5)
                 { 
                 buttonMoneyPerTickUpgrade.Text =
-                    "Ukończ kurs na\n" +
-                    "lepiej płatną parcę\n" +
-                    MoneyPerTickCosts[MoneyPerTickLvl, 0] + " ECTS\n" +
+                    "Ulepsz koparkę\n" +
+                    "kryptowalut\n" +
+                    (MoneyPerTickCosts[MoneyPerTickLvl, 0] / 10000) + " ECTS\n" +
                     MoneyPerTickCosts[MoneyPerTickLvl, 1] + " Pieniedzy";
                 }
                 else
                 {
                     buttonMoneyPerTickUpgrade.Text =
                         "Masz najlepszą dostępną\n" +
-                        "pracę studencką!\n";
+                        "koparkę kryptowalut!\n";
                 }
             }
         }
@@ -367,11 +504,19 @@ namespace MikolajRarokZad1
         {
             if (MoneyPerClickLvl >= 5)
             {
-                // Wypisz w konsoli "Osiągnięto maksymalny poziom"
+                formMessage = new FormMessage();
+                formMessage.text =
+                    "Osiągnięto maksymalny\n" +
+                    "poziom ulepszenia";
+                formMessage.Show();
             }
             else if (ECTS < MoneyPerClickCosts[MoneyPerClickLvl, 0] || Money < MoneyPerClickCosts[MoneyPerClickLvl, 1])
             {
-                // Wypisz w konsoli "Za mało statystyk"
+                formMessage = new FormMessage();
+                formMessage.text =
+                    "Niestety nie stać\n" +
+                    "cię na to ulepszenie";
+                formMessage.Show();
             }
             else
             {
@@ -384,19 +529,48 @@ namespace MikolajRarokZad1
                 if (MoneyPerClickLvl < 5)
                 {
                     buttonMoneyPerClickUpgrade.Text =
-                        "Ulepsz koparkę\n" +
-                        "kryptowalut\n" +
-                        MoneyPerClickCosts[MoneyPerClickLvl, 0] + " ECTS\n" +
+                        "Ukończ kurs na\n" +
+                        "lepiej płatną parcę\n" +
+                        (MoneyPerClickCosts[MoneyPerClickLvl, 0] / 10000) + " ECTS\n" +
                         MoneyPerClickCosts[MoneyPerClickLvl, 1] + " Pieniedzy";
                 } 
                 else
                 {
                     buttonMoneyPerClickUpgrade.Text =
                         "Masz najlepszą dostępną\n" +
-                        "koparkę kryptowalut!\n";
+                        "pracę studencką!\n";
                 }
             }
         }
 
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            buttonECTSPerClickUpgrade.Text =
+                "Zainwestuj w kolejny\n" +
+                "kurs eTrapeza\n" +
+                (ECTSPerClickCosts[ECTSPerClickLvl, 0] / 10000) + " ECTS\n" +
+                ECTSPerClickCosts[ECTSPerClickLvl, 1] + " Pieniedzy";
+            buttonECTSPerTickUpgrade.Text =
+                "Napisz/Ulepsz bota do\n" +
+                "wyszukiwania gotowców na necie\n" +
+                (ECTSPerTickCosts[ECTSPerTickLvl, 0] / 10000) + " ECTS\n" +
+                ECTSPerTickCosts[ECTSPerTickLvl, 1] + " Pieniedzy";
+            buttonRandomBoostUpgrade.Text =
+                "Wizyta u\n" +
+                "wróżbity\n" +
+                (RandomBoostCosts[RandomBoostLvl, 0] / 10000) + " ECTS\n" +
+                RandomBoostCosts[RandomBoostLvl, 1] + " Pieniedzy";
+            buttonMoneyPerTickUpgrade.Text =
+                "Ulepsz koparkę\n" +
+                "kryptowalut\n" +
+                (MoneyPerTickCosts[MoneyPerTickLvl, 0] / 10000) + " ECTS\n" +
+                MoneyPerTickCosts[MoneyPerTickLvl, 1] + " Pieniedzy";
+            buttonMoneyPerClickUpgrade.Text =
+                "Ukończ kurs na\n" +
+                "lepiej płatną parcę\n" +
+                (MoneyPerClickCosts[MoneyPerClickLvl, 0] / 10000) + " ECTS\n" +
+                MoneyPerClickCosts[MoneyPerClickLvl, 1] + " Pieniedzy";
+        }
     }
 }
+
