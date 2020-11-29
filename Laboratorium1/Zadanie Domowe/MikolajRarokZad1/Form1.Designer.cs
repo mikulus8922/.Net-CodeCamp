@@ -194,7 +194,7 @@ namespace MikolajRarokZad1
             // 
             // labelTextMoney
             // 
-            this.labelTextMoney.BackColor = System.Drawing.Color.Lime;
+            this.labelTextMoney.BackColor = System.Drawing.Color.White;
             this.labelTextMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelTextMoney.Location = new System.Drawing.Point(12, 201);
             this.labelTextMoney.Name = "labelTextMoney";

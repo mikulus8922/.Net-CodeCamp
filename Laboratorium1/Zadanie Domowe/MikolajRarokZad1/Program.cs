@@ -8,7 +8,6 @@ namespace MikolajRarokZad1
 {
     static class Program
     {
-        public static FormMain formMain;
         /// <summary>
         /// Główny punkt wejścia dla aplikacji.
         /// </summary>
@@ -17,7 +16,7 @@ namespace MikolajRarokZad1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(formMain = new FormMain());
+            Application.Run(new FormMain());
         }
     }
 }

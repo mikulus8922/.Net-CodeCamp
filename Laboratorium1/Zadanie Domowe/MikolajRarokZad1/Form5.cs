@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MikolajRarokZad1
 {
-    public partial class FormEventEtrapez : Form
+    public partial class FormEventTestownik : Form
     {
-        public FormEventEtrapez()
+        public FormEventTestownik()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace MikolajRarokZad1
         /// <param name="e"></param>
         private void buttonNo_Click(object sender, EventArgs e)
         {
-            
+
             this.Close();
         }
 
@@ -41,25 +41,25 @@ namespace MikolajRarokZad1
         /// <param name="e"></param>
         private void buttonYes_Click(object sender, EventArgs e)
         {
-            if(FormMain.IsEventWon == true)
+            if (FormMain.IsEventWon == true)
             {
-                FormMain.ECTS += 25000;
+                FormMain.ECTS += 30000;
                 formMessage = new FormMessage();
                 formMessage.text =
-                    "Pobranie kursu pozwala Ci\n" +
-                    "bez przeszkód zdać analizę.\n" +
-                    "Zysujesz 2,5 ECTSa!";
+                    "Może i nieetycznie\n" +
+                    "ale udaje Ci się zdać kurs.\n" +
+                    "Zysujesz 3 ECTSy!";
                 formMessage.Show();
             }
 
             else
             {
-                FormMain.Money -= 10000;
+                FormMain.ECTS = FormMain.ECTS + 20000;
                 formMessage = new FormMessage();
                 formMessage.text =
-                    "Piracenie oprogramowania\n" +
-                    "tym razem nie było najlepszym\n" +
-                    "pomysłem. Tracisz 10000 pieniędzy!";
+                    "Jak na złość prowadzący\n" +
+                    "wyjątkowa kazał wysyłać całe\n" +
+                    "rozwiązania zadań. Tracisz 2 ECTSy";
                 formMessage.Show();
             }
 
@@ -71,5 +71,7 @@ namespace MikolajRarokZad1
             labelEvent.Text = text;
         }
 
+
     }
 }
+

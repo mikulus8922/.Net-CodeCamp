@@ -15,13 +15,15 @@ namespace MikolajRarokZad1
 
         // Zmienne okien pomocniczych
         public FormMessage formMessage;
-        public FormEventEtrapez formEvent;
+        public FormEventEtrapez formEventEtrapez;
+        public FormEventWolfram formEventWolfram;
+        public FormEventTestownik formEventTestownik;
 
 
 
         // Statystyki
-        public static double ECTS = 100000;
-        public static double Money = 30000;
+        public static double ECTS = 0;
+        public static double Money = 250;
 
 
         // Poziomy ulepszeń        
@@ -41,40 +43,40 @@ namespace MikolajRarokZad1
         {50, 0},
         {250, 500},
         {1000, 2500},
-        {5000, 1000},
-        {1000, 300}
+        {5000, 10000},
+        {10000, 30000}
         };
 
         double[,] ECTSPerTickCosts = new double[5, 2] {
         {50, 0},
-        {250, 0},
-        {1000,0},
-        {5000,0},
-        {10000,2000}
+        {250, 1000},
+        {1000,5000},
+        {5000,25000},
+        {10000,50000}
         };
 
         double[,] MoneyPerClickCosts = new double[5, 2] {
         {50, 0},
-        {250, 0},
-        {1000,0},
-        {5000,0},
-        {10000,2000}
+        {500, 0},
+        {5000, 0},
+        {10000, 5000},
+        {25000, 10000}
         };
 
         double[,] MoneyPerTickCosts = new double[5, 2] {
-        {50, 0},
-        {250, 0},
-        {1000,0},
-        {5000,0},
-        {10000,2000}
+        {50, 100},
+        {250, 2500},
+        {1000,5000},
+        {5000,7500},
+        {10000,10000}
         };
 
         double[,] RandomBoostCosts = new double[5, 2] {
-        {50, 0},
-        {250, 0},
-        {1000,0},
-        {5000,0},
-        {100,200}
+        {0, 1000},
+        {0, 2500},
+        {0,5000},
+        {0,7500},
+        {0,10000}
         };
 
 
@@ -85,7 +87,8 @@ namespace MikolajRarokZad1
         bool IsGameWon = false;
 
         bool IsETrapezEventDone = false;
-
+        bool IsWolframEventDone = false;
+        bool IsTestownikEventDone = false;
 
 
 
@@ -252,15 +255,40 @@ namespace MikolajRarokZad1
             if(ECTS >= 10000 && IsETrapezEventDone == false)
             {
                 IsETrapezEventDone = true;
-                IsEventWon = IsRandomGameWon(20, 3);
+                IsEventWon = IsRandomGameWon(70, 10);
 
-                formEvent = new FormEventEtrapez();
-                formEvent.text=
+                formEventEtrapez = new FormEventEtrapez();
+                formEventEtrapez.text=
                     "Masz możliwość\n" +
                     "pobrania nielegalnej\n" +
                     "wersji eTrapeza";
-                formEvent.Show();
+                formEventEtrapez.Show();
 
+            }
+            if (ECTS >= 5000 && IsTestownikEventDone == false)
+            {
+                IsTestownikEventDone = true;
+                IsEventWon = IsRandomGameWon(20, 2);
+
+                formEventTestownik = new FormEventTestownik();
+                formEventTestownik.text =
+                    "Słyszałeś od starszych roczników\n" +
+                    "że następne kolokwium można bez\n" +
+                    "problemów zdać testownikiem";
+                formEventTestownik.Show();
+            }
+
+            if (ECTS >= 50000 && IsWolframEventDone == false)
+            {
+                IsWolframEventDone = true;
+                IsEventWon = IsRandomGameWon(20, 2);
+
+                formEventWolfram = new FormEventWolfram();
+                formEventWolfram.text =
+                    "W związu ze zdalnym nauczaniem\n" +
+                    "możesz liczyć na możliwość uzupełnienia\n" +
+                    "odpowiedzi na kolokwium wynikami z WolframaAlpha";
+                formEventWolfram.Show();
             }
 
         }

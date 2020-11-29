@@ -1,7 +1,7 @@
 ﻿
 namespace MikolajRarokZad1
 {
-    partial class FormEventEtrapez
+    partial class FormEventWolfram
     {
         /// <summary>
         /// Required designer variable.
@@ -56,7 +56,7 @@ namespace MikolajRarokZad1
             // 
             // buttonYes
             // 
-            this.buttonYes.Location = new System.Drawing.Point(182, 96);
+            this.buttonYes.Location = new System.Drawing.Point(181, 96);
             this.buttonYes.Name = "buttonYes";
             this.buttonYes.Size = new System.Drawing.Size(97, 51);
             this.buttonYes.TabIndex = 2;
@@ -64,7 +64,7 @@ namespace MikolajRarokZad1
             this.buttonYes.UseVisualStyleBackColor = true;
             this.buttonYes.Click += new System.EventHandler(this.buttonYes_Click);
             // 
-            // FormEventEtrapez
+            // FormEventWolfram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,7 +72,7 @@ namespace MikolajRarokZad1
             this.Controls.Add(this.buttonYes);
             this.Controls.Add(this.buttonNo);
             this.Controls.Add(this.labelEvent);
-            this.Name = "FormEventEtrapez";
+            this.Name = "FormEventWolfram";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wydarzenie";
             this.Load += new System.EventHandler(this.FormEvent_Load);
