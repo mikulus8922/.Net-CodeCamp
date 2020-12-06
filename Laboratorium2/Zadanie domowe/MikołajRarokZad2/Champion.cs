@@ -8,6 +8,7 @@ namespace MikołajRarokZad2
 {
     abstract class Champion
     {
+        private String heroClass;
         private int health;
         private int defence;
         private int damage;
@@ -16,6 +17,7 @@ namespace MikołajRarokZad2
         private int inteligence;
 
 
+        public string HeroClass { get => heroClass; set => heroClass = value; }
         public int Health { get => health; set => health = value; }
         public int Defence { get => defence; set => defence = value; }
         public int Damage { get => damage; set => damage = value; }
@@ -31,6 +33,5 @@ namespace MikołajRarokZad2
             sad,
             depressive
         }
-       
     }
 }

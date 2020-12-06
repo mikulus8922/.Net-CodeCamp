@@ -23,6 +23,7 @@ namespace MikołajRarokZad2
         /// </summary>
         public ClassPaladin()
         {
+            HeroClass = "Paladin";
             Health = random.Next(500, 600);
             Defence = random.Next(15, 20);
             Damage = random.Next(75, 125);

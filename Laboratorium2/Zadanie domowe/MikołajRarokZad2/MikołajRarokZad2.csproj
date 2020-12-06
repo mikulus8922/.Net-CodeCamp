@@ -67,6 +67,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeLight.cs" />
     <Compile Include="TypeMagical.cs" />
+    <Compile Include="Utility.cs" />
     <EmbeddedResource Include="FormChampions.resx">
       <DependentUpon>FormChampions.cs</DependentUpon>
     </EmbeddedResource>

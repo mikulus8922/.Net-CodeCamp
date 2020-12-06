@@ -23,6 +23,7 @@ namespace MikołajRarokZad2
         /// </summary>
         public ClassArcher()
         {
+            HeroClass = "Archer";
             Health = random.Next(250, 300);
             Defence = random.Next(5, 10);
             Damage = random.Next(200, 250);

@@ -24,6 +24,7 @@ namespace MikołajRarokZad2
         /// </summary>
         public ClassBarbarian()
         {
+            HeroClass = "Barbarian";
             Health = random.Next(900, 1250);
             Defence = random.Next(30, 40);
             Damage = random.Next(50, 75);
