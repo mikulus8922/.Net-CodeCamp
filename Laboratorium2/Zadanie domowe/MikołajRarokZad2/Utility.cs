@@ -8,7 +8,14 @@ namespace MikołajRarokZad2
 {
     class Utility
     {
+
+        /// <summary>
+        /// List of owned champions
+        /// </summary>
         private List<Champion> championRoster = new List<Champion>();
+        /// <summary>
+        /// Temporary list of 3 new champions
+        /// </summary>
         private List<Champion> championRecruitment = new List<Champion>();
 
         public List<Champion> ChampionRoster { get => championRoster; set => championRoster = value; }
@@ -72,6 +79,10 @@ namespace MikołajRarokZad2
         {
             ChampionRecruitment.Clear();
         }
+
+
+
+
 
 
 

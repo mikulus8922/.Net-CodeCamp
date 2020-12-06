@@ -29,21 +29,29 @@ namespace MikołajRarokZad2
         public int TypeAbility { get => typeAbility; set => typeAbility = value; }
         public int ClassAbility { get => classAbility; set => classAbility = value; }
 
-        internal enum CharacterTraits
-        {
-            optimistic,
-            happy,
-            sad,
-            depressive
-        }
 
+        /// <summary>
+        /// Abstract method overriden in
+        /// types of champions
+        /// </summary>
         public abstract void UseTypeAbility();
 
-
+        /// <summary>
+        /// Abstract method overriden in
+        /// classes of champions
+        /// </summary>
         public abstract void UseClassAbility();
 
+        /// <summary>
+        /// Abstract method overriden in
+        /// types of champions
+        /// </summary>
         public abstract String ReturnTypeAbilityName();
 
+        /// <summary>
+        /// Abstract method overriden in
+        /// classes of champions
+        /// </summary>
         public abstract String ReturnClassAbilityName();
 
 

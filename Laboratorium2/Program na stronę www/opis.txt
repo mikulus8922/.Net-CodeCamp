@@ -1,0 +1,19 @@
+Program jest implementacją interfejsu pozwalającego 
+na rekrutowanie bohaterów do drużyny.
+Bazową abstrakcyjną klasą postaci jest champion 
+po którym dziedziczą 3 typy klas: Heavy Light i Magical.
+One natomiast dzielą się na łącznie 9 klas postaci,
+z których każda ma inne przedziały parametrów i umiejętności.
+
+Po naciśnięciu przycisku rekrutacji nowego bohatera zostaniemy
+przeniesieni do nowego okna gdzie wygenerowane zostaną losowo
+3 nowe postacie z których musimy wybrać jedną która zostanie
+dodana do naszej drużyny.
+
+Oprócz tego program pozwala na zaznaczenie/wyróżnienie
+postaci która została zaznaczona w gridView (zaznaczyć
+cały rząd) i usunięcie zaznaczonej postaci.
+
+Program po lekkim zmodyfikowaniu (na przykład nowych bohaterów
+możemy dodawać tylko po udanej wyprawie)można wykorzystać 
+jako bazę do typowej gry RPG.

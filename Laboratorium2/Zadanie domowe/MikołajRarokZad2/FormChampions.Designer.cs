@@ -29,9 +29,7 @@ namespace MikołajRarokZad2
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.buttonGenerateNewChampions = new System.Windows.Forms.Button();
-            this.timerMain = new System.Windows.Forms.Timer(this.components);
             this.buttonSelectHero = new System.Windows.Forms.Button();
             this.buttonDeleteSelectedChampions = new System.Windows.Forms.Button();
             this.labelChampionClassAbility = new System.Windows.Forms.Label();
@@ -57,27 +55,27 @@ namespace MikołajRarokZad2
             // 
             // buttonGenerateNewChampions
             // 
-            this.buttonGenerateNewChampions.Location = new System.Drawing.Point(12, 404);
+            this.buttonGenerateNewChampions.Location = new System.Drawing.Point(12, 267);
             this.buttonGenerateNewChampions.Name = "buttonGenerateNewChampions";
             this.buttonGenerateNewChampions.Size = new System.Drawing.Size(140, 59);
             this.buttonGenerateNewChampions.TabIndex = 0;
-            this.buttonGenerateNewChampions.Text = "Recruit New Hero";
+            this.buttonGenerateNewChampions.Text = "Recruit New Champion";
             this.buttonGenerateNewChampions.UseVisualStyleBackColor = true;
             this.buttonGenerateNewChampions.Click += new System.EventHandler(this.buttonGenerateNewChampions_Click);
             // 
             // buttonSelectHero
             // 
-            this.buttonSelectHero.Location = new System.Drawing.Point(158, 404);
+            this.buttonSelectHero.Location = new System.Drawing.Point(12, 332);
             this.buttonSelectHero.Name = "buttonSelectHero";
             this.buttonSelectHero.Size = new System.Drawing.Size(140, 59);
             this.buttonSelectHero.TabIndex = 3;
-            this.buttonSelectHero.Text = "Select hero";
+            this.buttonSelectHero.Text = "Select Champion";
             this.buttonSelectHero.UseVisualStyleBackColor = true;
             this.buttonSelectHero.Click += new System.EventHandler(this.buttonSelectHero_Click);
             // 
             // buttonDeleteSelectedChampions
             // 
-            this.buttonDeleteSelectedChampions.Location = new System.Drawing.Point(12, 337);
+            this.buttonDeleteSelectedChampions.Location = new System.Drawing.Point(12, 397);
             this.buttonDeleteSelectedChampions.Name = "buttonDeleteSelectedChampions";
             this.buttonDeleteSelectedChampions.Size = new System.Drawing.Size(140, 59);
             this.buttonDeleteSelectedChampions.TabIndex = 5;
@@ -87,7 +85,7 @@ namespace MikołajRarokZad2
             // 
             // labelChampionClassAbility
             // 
-            this.labelChampionClassAbility.Location = new System.Drawing.Point(882, 381);
+            this.labelChampionClassAbility.Location = new System.Drawing.Point(766, 391);
             this.labelChampionClassAbility.Name = "labelChampionClassAbility";
             this.labelChampionClassAbility.Size = new System.Drawing.Size(75, 30);
             this.labelChampionClassAbility.TabIndex = 58;
@@ -96,7 +94,7 @@ namespace MikołajRarokZad2
             // 
             // labelClassAbilityName
             // 
-            this.labelClassAbilityName.Location = new System.Drawing.Point(797, 381);
+            this.labelClassAbilityName.Location = new System.Drawing.Point(681, 391);
             this.labelClassAbilityName.Name = "labelClassAbilityName";
             this.labelClassAbilityName.Size = new System.Drawing.Size(75, 30);
             this.labelClassAbilityName.TabIndex = 57;
@@ -105,7 +103,7 @@ namespace MikołajRarokZad2
             // 
             // labelChampionTypeAbility
             // 
-            this.labelChampionTypeAbility.Location = new System.Drawing.Point(882, 351);
+            this.labelChampionTypeAbility.Location = new System.Drawing.Point(766, 361);
             this.labelChampionTypeAbility.Name = "labelChampionTypeAbility";
             this.labelChampionTypeAbility.Size = new System.Drawing.Size(75, 30);
             this.labelChampionTypeAbility.TabIndex = 56;
@@ -114,7 +112,7 @@ namespace MikołajRarokZad2
             // 
             // labelTypeAbilityName
             // 
-            this.labelTypeAbilityName.Location = new System.Drawing.Point(797, 351);
+            this.labelTypeAbilityName.Location = new System.Drawing.Point(681, 361);
             this.labelTypeAbilityName.Name = "labelTypeAbilityName";
             this.labelTypeAbilityName.Size = new System.Drawing.Size(75, 30);
             this.labelTypeAbilityName.TabIndex = 55;
@@ -123,7 +121,7 @@ namespace MikołajRarokZad2
             // 
             // labelChampionInteligence
             // 
-            this.labelChampionInteligence.Location = new System.Drawing.Point(716, 411);
+            this.labelChampionInteligence.Location = new System.Drawing.Point(600, 421);
             this.labelChampionInteligence.Name = "labelChampionInteligence";
             this.labelChampionInteligence.Size = new System.Drawing.Size(75, 30);
             this.labelChampionInteligence.TabIndex = 54;
@@ -132,7 +130,7 @@ namespace MikołajRarokZad2
             // 
             // labelInteligenceName
             // 
-            this.labelInteligenceName.Location = new System.Drawing.Point(631, 411);
+            this.labelInteligenceName.Location = new System.Drawing.Point(515, 421);
             this.labelInteligenceName.Name = "labelInteligenceName";
             this.labelInteligenceName.Size = new System.Drawing.Size(75, 30);
             this.labelInteligenceName.TabIndex = 53;
@@ -141,7 +139,7 @@ namespace MikołajRarokZad2
             // 
             // labelChampionDexterity
             // 
-            this.labelChampionDexterity.Location = new System.Drawing.Point(716, 381);
+            this.labelChampionDexterity.Location = new System.Drawing.Point(600, 391);
             this.labelChampionDexterity.Name = "labelChampionDexterity";
             this.labelChampionDexterity.Size = new System.Drawing.Size(75, 30);
             this.labelChampionDexterity.TabIndex = 52;
@@ -150,7 +148,7 @@ namespace MikołajRarokZad2
             // 
             // labelDexterityName
             // 
-            this.labelDexterityName.Location = new System.Drawing.Point(631, 381);
+            this.labelDexterityName.Location = new System.Drawing.Point(515, 391);
             this.labelDexterityName.Name = "labelDexterityName";
             this.labelDexterityName.Size = new System.Drawing.Size(75, 30);
             this.labelDexterityName.TabIndex = 51;
@@ -159,7 +157,7 @@ namespace MikołajRarokZad2
             // 
             // labelChampionDamage
             // 
-            this.labelChampionDamage.Location = new System.Drawing.Point(550, 411);
+            this.labelChampionDamage.Location = new System.Drawing.Point(434, 421);
             this.labelChampionDamage.Name = "labelChampionDamage";
             this.labelChampionDamage.Size = new System.Drawing.Size(75, 30);
             this.labelChampionDamage.TabIndex = 50;
@@ -168,7 +166,7 @@ namespace MikołajRarokZad2
             // 
             // labelDamageName
             // 
-            this.labelDamageName.Location = new System.Drawing.Point(465, 411);
+            this.labelDamageName.Location = new System.Drawing.Point(349, 421);
             this.labelDamageName.Name = "labelDamageName";
             this.labelDamageName.Size = new System.Drawing.Size(75, 30);
             this.labelDamageName.TabIndex = 49;
@@ -177,7 +175,7 @@ namespace MikołajRarokZad2
             // 
             // labelChampionDefence
             // 
-            this.labelChampionDefence.Location = new System.Drawing.Point(550, 381);
+            this.labelChampionDefence.Location = new System.Drawing.Point(434, 391);
             this.labelChampionDefence.Name = "labelChampionDefence";
             this.labelChampionDefence.Size = new System.Drawing.Size(75, 30);
             this.labelChampionDefence.TabIndex = 48;
@@ -186,7 +184,7 @@ namespace MikołajRarokZad2
             // 
             // labelDefenceName
             // 
-            this.labelDefenceName.Location = new System.Drawing.Point(465, 381);
+            this.labelDefenceName.Location = new System.Drawing.Point(349, 391);
             this.labelDefenceName.Name = "labelDefenceName";
             this.labelDefenceName.Size = new System.Drawing.Size(75, 30);
             this.labelDefenceName.TabIndex = 47;
@@ -195,7 +193,7 @@ namespace MikołajRarokZad2
             // 
             // labelChampionHealth
             // 
-            this.labelChampionHealth.Location = new System.Drawing.Point(550, 351);
+            this.labelChampionHealth.Location = new System.Drawing.Point(434, 361);
             this.labelChampionHealth.Name = "labelChampionHealth";
             this.labelChampionHealth.Size = new System.Drawing.Size(75, 30);
             this.labelChampionHealth.TabIndex = 46;
@@ -204,7 +202,7 @@ namespace MikołajRarokZad2
             // 
             // labelHealthName
             // 
-            this.labelHealthName.Location = new System.Drawing.Point(465, 351);
+            this.labelHealthName.Location = new System.Drawing.Point(349, 361);
             this.labelHealthName.Name = "labelHealthName";
             this.labelHealthName.Size = new System.Drawing.Size(75, 30);
             this.labelHealthName.TabIndex = 45;
@@ -214,7 +212,7 @@ namespace MikołajRarokZad2
             // labelChampionClass
             // 
             this.labelChampionClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelChampionClass.Location = new System.Drawing.Point(631, 283);
+            this.labelChampionClass.Location = new System.Drawing.Point(515, 293);
             this.labelChampionClass.Name = "labelChampionClass";
             this.labelChampionClass.Size = new System.Drawing.Size(160, 45);
             this.labelChampionClass.TabIndex = 44;
@@ -233,7 +231,7 @@ namespace MikołajRarokZad2
             // 
             // labelChampionAccuracy
             // 
-            this.labelChampionAccuracy.Location = new System.Drawing.Point(716, 351);
+            this.labelChampionAccuracy.Location = new System.Drawing.Point(600, 361);
             this.labelChampionAccuracy.Name = "labelChampionAccuracy";
             this.labelChampionAccuracy.Size = new System.Drawing.Size(75, 30);
             this.labelChampionAccuracy.TabIndex = 63;
@@ -242,7 +240,7 @@ namespace MikołajRarokZad2
             // 
             // labelAccuracyName
             // 
-            this.labelAccuracyName.Location = new System.Drawing.Point(631, 351);
+            this.labelAccuracyName.Location = new System.Drawing.Point(515, 361);
             this.labelAccuracyName.Name = "labelAccuracyName";
             this.labelAccuracyName.Size = new System.Drawing.Size(75, 30);
             this.labelAccuracyName.TabIndex = 62;
@@ -276,6 +274,7 @@ namespace MikołajRarokZad2
             this.Controls.Add(this.buttonSelectHero);
             this.Controls.Add(this.buttonGenerateNewChampions);
             this.Name = "FormChampions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Champions";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoster)).EndInit();
             this.ResumeLayout(false);
@@ -285,7 +284,6 @@ namespace MikołajRarokZad2
         #endregion
 
         private System.Windows.Forms.Button buttonGenerateNewChampions;
-        private System.Windows.Forms.Timer timerMain;
         private System.Windows.Forms.Button buttonSelectHero;
         private System.Windows.Forms.Button buttonDeleteSelectedChampions;
         private System.Windows.Forms.Label labelChampionClassAbility;

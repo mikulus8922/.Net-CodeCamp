@@ -506,9 +506,9 @@ namespace MikołajRarokZad2
             // 
             // buttonChoose1
             // 
-            this.buttonChoose1.Location = new System.Drawing.Point(15, 383);
+            this.buttonChoose1.Location = new System.Drawing.Point(16, 388);
             this.buttonChoose1.Name = "buttonChoose1";
-            this.buttonChoose1.Size = new System.Drawing.Size(157, 55);
+            this.buttonChoose1.Size = new System.Drawing.Size(156, 55);
             this.buttonChoose1.TabIndex = 46;
             this.buttonChoose1.Text = "Choose <class>";
             this.buttonChoose1.UseVisualStyleBackColor = true;
@@ -516,9 +516,9 @@ namespace MikołajRarokZad2
             // 
             // buttonChoose2
             // 
-            this.buttonChoose2.Location = new System.Drawing.Point(309, 383);
+            this.buttonChoose2.Location = new System.Drawing.Point(310, 388);
             this.buttonChoose2.Name = "buttonChoose2";
-            this.buttonChoose2.Size = new System.Drawing.Size(157, 55);
+            this.buttonChoose2.Size = new System.Drawing.Size(156, 55);
             this.buttonChoose2.TabIndex = 47;
             this.buttonChoose2.Text = "Choose <class>";
             this.buttonChoose2.UseVisualStyleBackColor = true;
@@ -526,9 +526,9 @@ namespace MikołajRarokZad2
             // 
             // buttonChoose3
             // 
-            this.buttonChoose3.Location = new System.Drawing.Point(613, 383);
+            this.buttonChoose3.Location = new System.Drawing.Point(614, 388);
             this.buttonChoose3.Name = "buttonChoose3";
-            this.buttonChoose3.Size = new System.Drawing.Size(157, 55);
+            this.buttonChoose3.Size = new System.Drawing.Size(156, 55);
             this.buttonChoose3.TabIndex = 48;
             this.buttonChoose3.Text = "Choose <class>";
             this.buttonChoose3.UseVisualStyleBackColor = true;
@@ -592,7 +592,7 @@ namespace MikołajRarokZad2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(802, 466);
             this.Controls.Add(this.labelChampionAccuracy3);
             this.Controls.Add(this.labelChampionAccuracy2);
             this.Controls.Add(this.labelChampionAccuracy1);
@@ -649,6 +649,7 @@ namespace MikołajRarokZad2
             this.Controls.Add(this.labelChampionClass2);
             this.Controls.Add(this.labelChampionClass1);
             this.Name = "FormNewChampions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNewChampions";
             this.Load += new System.EventHandler(this.FormNewChampions_Load);
             this.ResumeLayout(false);

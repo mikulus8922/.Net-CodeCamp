@@ -23,6 +23,12 @@ namespace MikołajRarokZad2
         }
 
 
+        /// <summary>
+        /// Opens a new form used to
+        /// recruit new champions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonGenerateNewChampions_Click(object sender, EventArgs e)
         {
             FormNewChampions formNewChampions = new FormNewChampions();
@@ -31,7 +37,9 @@ namespace MikołajRarokZad2
 
 
 
-
+        /// <summary>
+        /// Refreshes dataGridView
+        /// </summary>
         public void RefreshRoster()
         {
             dataGridViewRoster.DataSource = null;
@@ -42,7 +50,11 @@ namespace MikołajRarokZad2
         
 
 
-
+        /// <summary>
+        /// Deletes the champion that is currently selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonDeleteSelectedChampions_Click(object sender, EventArgs e)
         {
             Champion championToRemove = null;
@@ -67,6 +79,13 @@ namespace MikołajRarokZad2
             RefreshRoster();
         }
 
+        /// <summary>
+        /// Selects and writes inormation to labels
+        /// about a champion that is currently selected
+        /// by left clicking a row in a dataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSelectHero_Click(object sender, EventArgs e)
         {
             if (this.dataGridViewRoster.SelectedRows.Count == 1)
@@ -83,6 +102,53 @@ namespace MikołajRarokZad2
                 labelChampionInteligence.Text = dataGridViewRoster.Rows[rowindex].Cells[6].Value.ToString();
                 labelChampionTypeAbility.Text = dataGridViewRoster.Rows[rowindex].Cells[7].Value.ToString();
                 labelChampionClassAbility.Text = dataGridViewRoster.Rows[rowindex].Cells[8].Value.ToString();
+
+                if(labelChampionClass.Text == "Knight")
+                {
+                    labelTypeAbilityName.Text = "Shield";
+                    labelClassAbilityName.Text = "Protect";
+                }
+                if (labelChampionClass.Text == "Paladin")
+                {
+                    labelTypeAbilityName.Text = "Shield";
+                    labelClassAbilityName.Text = "Mass heal";
+                }
+                if (labelChampionClass.Text == "Barbarian")
+                {
+                    labelTypeAbilityName.Text = "Shield";
+                    labelClassAbilityName.Text = "Taunt";
+                }
+                if (labelChampionClass.Text == "Archer")
+                {
+                    labelTypeAbilityName.Text = "Stealth";
+                    labelClassAbilityName.Text = "Volley";
+                }
+                if (labelChampionClass.Text == "Rogue")
+                {
+                    labelTypeAbilityName.Text = "Stealth";
+                    labelClassAbilityName.Text = "Throwing daggers";
+                }
+                if (labelChampionClass.Text == "Assasin")
+                {
+                    labelTypeAbilityName.Text = "Stealth";
+                    labelClassAbilityName.Text = "Backstab";
+                }
+                if (labelChampionClass.Text == "Warlock")
+                {
+                    labelTypeAbilityName.Text = "Mana";
+                    labelClassAbilityName.Text = "Consume soul";
+                }
+                if (labelChampionClass.Text == "Shaman")
+                {
+                    labelTypeAbilityName.Text = "Mana";
+                    labelClassAbilityName.Text = "Buff damage";
+                }
+                if (labelChampionClass.Text == "Priest")
+                {
+                    labelTypeAbilityName.Text = "Mana";
+                    labelClassAbilityName.Text = "Direct heal";
+                }
+
             }
         }
 
