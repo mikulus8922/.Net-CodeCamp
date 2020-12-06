@@ -8,14 +8,8 @@ namespace MikołajRarokZad2
 {
     class ClassAssasin : TypeLight
     {
-        /// <summary>
-        /// Damage multiplier
-        /// </summary>
-        private int Backstab;
 
-        public int Backstab1 { get => Backstab; set => Backstab = value; }
-
-        Random random = new Random();
+        Random random = new Random(Guid.NewGuid().GetHashCode());
 
         /// <summary>
         /// Assasin class constructor
@@ -23,22 +17,32 @@ namespace MikołajRarokZad2
         public ClassAssasin()
         {
             HeroClass = "Assasin";
-            Health = random.Next(250, 350);
-            Defence = random.Next(0, 5);
-            Damage = random.Next(300, 400);
-            Accuracy = random.Next(40, 60);
-            Dexterity = random.Next(30, 50);
-            Inteligence = random.Next(25, 35);
-            Stealth = 1;
-            Backstab = 2;
+            Health = random.Next(250, 351);
+            Defence = random.Next(0, 6);
+            Damage = random.Next(300, 401);
+            Accuracy = random.Next(40, 61);
+            Dexterity = random.Next(30, 51);
+            Inteligence = random.Next(25, 36);
+            TypeAbility = 1;
+            ClassAbility = 2;
         }
 
         /// <summary>
         /// Deal double damage to an enemy
         /// </summary>
-        public void UseBackstab()
+        public override void UseClassAbility()
         {
             //do napisania
+        }
+
+        /// <summary>
+        /// Returns name of this particular
+        /// class ability
+        /// </summary>
+        /// <returns></returns>
+        public override string ReturnClassAbilityName()
+        {
+            return "Backstab";
         }
 
     }

@@ -8,16 +8,9 @@ namespace MikołajRarokZad2
 {
     class ClassBarbarian : TypeHeavy
     {
-        /// <summary>
-        /// Amount of turns that
-        /// this class will taunt
-        /// the enemy team
-        /// </summary>
-        private int taunt;
 
-        public int Taunt { get => taunt; set => taunt = value; }
 
-        Random random = new Random();
+        Random random = new Random(Guid.NewGuid().GetHashCode());
 
         /// <summary>
         /// Barbarian class constructor
@@ -25,24 +18,35 @@ namespace MikołajRarokZad2
         public ClassBarbarian()
         {
             HeroClass = "Barbarian";
-            Health = random.Next(900, 1250);
-            Defence = random.Next(30, 40);
-            Damage = random.Next(50, 75);
-            Accuracy = random.Next(60, 75);
-            Dexterity = random.Next(0, 5);
-            Inteligence = random.Next(5, 10);
-            Armor = random.Next(250, 500);
-            Taunt = random.Next(1, 2);
+            Health = random.Next(900, 1251);
+            Defence = random.Next(30, 41);
+            Damage = random.Next(50, 76);
+            Accuracy = random.Next(60, 76);
+            Dexterity = random.Next(0, 6);
+            Inteligence = random.Next(5, 11);
+            TypeAbility = random.Next(250, 501);
+            ClassAbility = random.Next(1, 3);
         }
 
         /// <summary>
         /// Taunts the enemy team
         /// doubling the chance to
         /// be targeted by enemies
+        /// for a set amount of turns
         /// </summary>
-        public void UseTaunt()
+        public override void UseClassAbility()
         {
             //do napisania
+        }
+
+        /// <summary>
+        /// Returns name of this particular
+        /// class ability
+        /// </summary>
+        /// <returns></returns>
+        public override string ReturnClassAbilityName()
+        {
+            return "Taunt";
         }
 
     }

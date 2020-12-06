@@ -8,15 +8,8 @@ namespace MikołajRarokZad2
 {
     class ClassKnight : TypeHeavy
     {
-        /// <summary>
-        /// Amount of turns that
-        /// an ally will be shielded for
-        /// </summary>
-        private int shield;
 
-        public int Shield { get => shield; set => shield = value; }
-
-        Random random = new Random();
+        Random random = new Random(Guid.NewGuid().GetHashCode());
 
         /// <summary>
         /// Knight class constructor
@@ -24,26 +17,36 @@ namespace MikołajRarokZad2
         public ClassKnight()
         {
             HeroClass = "Knight";
-            Health = random.Next(600, 750);
-            Defence = random.Next(20, 25);
-            Damage = random.Next(100, 150);
-            Accuracy = random.Next(80, 95);
-            Dexterity = random.Next(0, 10);
-            Inteligence = random.Next(5, 10);
-            Armor = random.Next(300, 400);
-            Shield = random.Next(1, 2);
+            Health = random.Next(600, 751);
+            Defence = random.Next(20, 26);
+            Damage = random.Next(100, 151);
+            Accuracy = random.Next(80, 96);
+            Dexterity = random.Next(0, 11);
+            Inteligence = random.Next(5, 11);
+            TypeAbility = random.Next(300, 401);
+            ClassAbility = random.Next(1, 3);
         }
 
 
         /// <summary>
-        /// Function that forces this class to shield
-        /// an ally and take any damage dealt to it instead
+        /// Forces this class to shield
+        /// an ally and take any damage 
+        /// dealt to it instead
         /// </summary>
-        public void UseShield()
+        public override void UseClassAbility()
         {
             //do napisania;
         }
 
-        
+        /// <summary>
+        /// Returns name of this particular
+        /// class ability
+        /// </summary>
+        /// <returns></returns>
+        public override string ReturnClassAbilityName()
+        {
+            return "Protect";
+        }
+
     }
 }

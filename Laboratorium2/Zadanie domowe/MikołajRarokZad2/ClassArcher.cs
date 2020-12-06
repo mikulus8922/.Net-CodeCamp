@@ -16,7 +16,7 @@ namespace MikołajRarokZad2
 
         public int Volley { get => volley; set => volley = value; }
 
-        Random random = new Random();
+        Random random = new Random(Guid.NewGuid().GetHashCode());
 
         /// <summary>
         /// Archer class constructor
@@ -24,24 +24,33 @@ namespace MikołajRarokZad2
         public ClassArcher()
         {
             HeroClass = "Archer";
-            Health = random.Next(250, 300);
-            Defence = random.Next(5, 10);
-            Damage = random.Next(200, 250);
-            Accuracy = random.Next(70, 80);
-            Dexterity = random.Next(30, 40);
-            Inteligence = random.Next(10, 15);
-            Stealth = 2;
-            Volley = random.Next(25, 40);
+            Health = random.Next(250, 301);
+            Defence = random.Next(5, 11);
+            Damage = random.Next(200, 251);
+            Accuracy = random.Next(70, 81);
+            Dexterity = random.Next(30, 41);
+            Inteligence = random.Next(10, 16);
+            TypeAbility = 2;
+            ClassAbility = random.Next(25, 41);
         }
 
         /// <summary>
         /// Ability that damages
         /// the entire enemy team
         /// </summary>
-        public void UseVolley()
+        public override void UseClassAbility()
         {
             //do napisania
         }
 
+        /// <summary>
+        /// Returns name of this particular
+        /// class ability
+        /// </summary>
+        /// <returns></returns>
+        public override string ReturnClassAbilityName()
+        {
+            return "Volley";
+        }
     }
 }

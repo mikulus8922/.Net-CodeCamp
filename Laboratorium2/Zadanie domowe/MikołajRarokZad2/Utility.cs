@@ -15,8 +15,7 @@ namespace MikołajRarokZad2
         public List<Champion> ChampionRecruitment { get => championRecruitment; set => championRecruitment = value; }
 
 
-
-        Random random = new Random();
+        Random random = new Random(Guid.NewGuid().GetHashCode());
         int randomClass;
 
         /// <summary>
@@ -25,7 +24,7 @@ namespace MikołajRarokZad2
         public void GenerateNewChampionsList()
         {
             for (int i = 0; i < 3; i++)
-            {
+            { 
                 randomClass = random.Next(1, 10);
 
                 switch (randomClass)

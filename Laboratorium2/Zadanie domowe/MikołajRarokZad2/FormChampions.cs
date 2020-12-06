@@ -12,7 +12,10 @@ namespace MikołajRarokZad2
 {
     public partial class FormChampions : Form
     {
+
         Utility utility = new Utility();
+
+        internal Utility Utility { get => utility; set => utility = value; }
 
         public FormChampions()
         {
@@ -20,44 +23,68 @@ namespace MikołajRarokZad2
         }
 
 
-
-
-
         private void buttonGenerateNewChampions_Click(object sender, EventArgs e)
         {
-            utility.ClearNewChampionsList();
-            utility.GenerateNewChampionsList();
-            dataGridViewNewChampions.DataSource = null;
-            dataGridViewNewChampions.DataSource = utility.ChampionRecruitment;
+            FormNewChampions formNewChampions = new FormNewChampions();
+            formNewChampions.Show();
         }
 
-        private void dataGridViewNewChampions_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int selectedRow = 1;
 
-            switch (selectedRow) 
-            {
-                case 0:
-                    utility.ChampionRoster.Add(utility.ChampionRecruitment[0]);
-                    break;
-                case 1:
-                    utility.ChampionRoster.Add(utility.ChampionRecruitment[1]);
-                    break;
-                case 2:
-                    utility.ChampionRoster.Add(utility.ChampionRecruitment[2]);
-                    break;
-                default:
-                    break;
-            }
+
+
+        public void RefreshRoster()
+        {
             dataGridViewRoster.DataSource = null;
-            dataGridViewRoster.DataSource = utility.ChampionRoster;
-            dataGridViewNewChampions.DataSource = null;
-
+            dataGridViewRoster.DataSource = Utility.ChampionRoster;
         }
 
-        private void timerMain_Tick(object sender, EventArgs e)
+
+        
+
+
+
+        private void buttonDeleteSelectedChampions_Click(object sender, EventArgs e)
         {
-            dataGridViewNewChampions.DataSource = utility.ChampionRecruitment;
+            Champion championToRemove = null;
+            foreach(Champion champion in utility.ChampionRoster)
+            {
+                if (champion.HeroClass == labelChampionClass.Text &&
+                    champion.Health.ToString() == labelChampionHealth.Text &&
+                    champion.Defence.ToString() == labelChampionDefence.Text &&
+                    champion.Damage.ToString() == labelChampionDamage.Text &&
+                    champion.Accuracy.ToString() == labelChampionAccuracy.Text &&
+                    champion.Dexterity.ToString() == labelChampionDexterity.Text &&
+                    champion.Inteligence.ToString() == labelChampionInteligence.Text &&
+                    champion.TypeAbility.ToString() == labelChampionTypeAbility.Text &&
+                    champion.ClassAbility.ToString() == labelChampionClassAbility.Text)
+                {
+                    championToRemove = champion; 
+                }
+            }
+            if(championToRemove != null)
+                utility.ChampionRoster.Remove(championToRemove);
+
+            RefreshRoster();
         }
+
+        private void buttonSelectHero_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewRoster.SelectedRows.Count == 1)
+            {
+                int rowindex = dataGridViewRoster.CurrentCell.RowIndex;
+                int columnindex = dataGridViewRoster.CurrentCell.ColumnIndex;
+
+                labelChampionClass.Text = dataGridViewRoster.Rows[rowindex].Cells[0].Value.ToString();
+                labelChampionHealth.Text = dataGridViewRoster.Rows[rowindex].Cells[1].Value.ToString();
+                labelChampionDefence.Text = dataGridViewRoster.Rows[rowindex].Cells[2].Value.ToString();
+                labelChampionDamage.Text = dataGridViewRoster.Rows[rowindex].Cells[3].Value.ToString();
+                labelChampionAccuracy.Text = dataGridViewRoster.Rows[rowindex].Cells[4].Value.ToString();
+                labelChampionDexterity.Text = dataGridViewRoster.Rows[rowindex].Cells[5].Value.ToString();
+                labelChampionInteligence.Text = dataGridViewRoster.Rows[rowindex].Cells[6].Value.ToString();
+                labelChampionTypeAbility.Text = dataGridViewRoster.Rows[rowindex].Cells[7].Value.ToString();
+                labelChampionClassAbility.Text = dataGridViewRoster.Rows[rowindex].Cells[8].Value.ToString();
+            }
+        }
+
     }
 }

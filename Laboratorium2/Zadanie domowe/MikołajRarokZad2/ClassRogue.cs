@@ -8,15 +8,8 @@ namespace MikołajRarokZad2
 {
     class ClassRogue : TypeLight
     {
-        /// <summary>
-        /// % of base damage
-        /// dealt by this ability
-        /// </summary>
-        private int throwingDaggers;
 
-        public int ThrowingDaggers { get => throwingDaggers; set => throwingDaggers = value; }
-
-        Random random = new Random();
+        Random random = new Random(Guid.NewGuid().GetHashCode());
 
         /// <summary>
         /// Rogue class constructor
@@ -24,23 +17,33 @@ namespace MikołajRarokZad2
         public ClassRogue()
         {
             HeroClass = "Rogue";
-            Health = random.Next(350, 400);
-            Defence = random.Next(10, 15);
-            Damage = random.Next(150, 250);
-            Accuracy = random.Next(60, 75);
-            Dexterity = random.Next(25, 35);
-            Inteligence = random.Next(20, 25);
-            Stealth = 3;
-            ThrowingDaggers = random.Next(40, 50);
+            Health = random.Next(350, 401);
+            Defence = random.Next(10, 16);
+            Damage = random.Next(150, 251);
+            Accuracy = random.Next(60, 76);
+            Dexterity = random.Next(25, 36);
+            Inteligence = random.Next(20, 26);
+            TypeAbility = 3;
+            ClassAbility = random.Next(40, 51);
         }
 
         /// <summary>
         /// Uses throwing daggers
-        /// dealing damage to 3 enemies
+        /// dealing % of damage to 3 enemies
         /// </summary>
-        public void UseThrowingDaggers()
+        public override void UseClassAbility()
         {
             //do napisania
+        }
+
+        /// <summary>
+        /// Returns name of this particular
+        /// class ability
+        /// </summary>
+        /// <returns></returns>
+        public override string ReturnClassAbilityName()
+        {
+            return "Throwing daggers";
         }
 
     }

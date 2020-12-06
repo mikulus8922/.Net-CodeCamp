@@ -8,15 +8,9 @@ namespace MikołajRarokZad2
 {
     class ClassPaladin : TypeHeavy
     {
-        /// <summary>
-        /// Amount of health that this
-        /// class will heal the entire team
-        /// </summary>
-        private int massHeal;
 
-        public int MassHeal { get => massHeal; set => massHeal = value; }
 
-        Random random = new Random();
+        Random random = new Random(Guid.NewGuid().GetHashCode());
 
         /// <summary>
         /// Paladin class constructor
@@ -24,22 +18,33 @@ namespace MikołajRarokZad2
         public ClassPaladin()
         {
             HeroClass = "Paladin";
-            Health = random.Next(500, 600);
-            Defence = random.Next(15, 20);
-            Damage = random.Next(75, 125);
-            Accuracy = random.Next(75, 90);
-            Dexterity = random.Next(5, 15);
-            Inteligence = random.Next(15, 25);
-            Armor = random.Next(200, 300);
-            MassHeal = random.Next(50, 100);
+            Health = random.Next(500, 601);
+            Defence = random.Next(15, 21);
+            Damage = random.Next(75, 126);
+            Accuracy = random.Next(75, 91);
+            Dexterity = random.Next(5, 16);
+            Inteligence = random.Next(15, 26);
+            TypeAbility = random.Next(200, 301);
+            ClassAbility = random.Next(50, 101);
         }
 
         /// <summary>
-        /// Heal your team
+        /// Heal your entire team
+        /// for a set amount
         /// </summary>
-        public void UseMassheal()
+        public override void UseClassAbility()
         {
             //do napisania
+        }
+
+        /// <summary>
+        /// Returns name of this particular
+        /// class ability
+        /// </summary>
+        /// <returns></returns>
+        public override string ReturnClassAbilityName()
+        {
+            return "Mass heal";
         }
 
     }

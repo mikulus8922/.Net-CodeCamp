@@ -15,6 +15,8 @@ namespace MikołajRarokZad2
         private int accuracy;       
         private int dexterity;
         private int inteligence;
+        private int typeAbility;
+        private int classAbility;
 
 
         public string HeroClass { get => heroClass; set => heroClass = value; }
@@ -24,7 +26,8 @@ namespace MikołajRarokZad2
         public int Accuracy { get => accuracy; set => accuracy = value; }
         public int Dexterity { get => dexterity; set => dexterity = value; }
         public int Inteligence { get => inteligence; set => inteligence = value; }
-        
+        public int TypeAbility { get => typeAbility; set => typeAbility = value; }
+        public int ClassAbility { get => classAbility; set => classAbility = value; }
 
         internal enum CharacterTraits
         {
@@ -33,5 +36,16 @@ namespace MikołajRarokZad2
             sad,
             depressive
         }
+
+        public abstract void UseTypeAbility();
+
+
+        public abstract void UseClassAbility();
+
+        public abstract String ReturnTypeAbilityName();
+
+        public abstract String ReturnClassAbilityName();
+
+
     }
 }

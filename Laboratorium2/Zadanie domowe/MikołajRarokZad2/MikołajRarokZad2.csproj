@@ -62,6 +62,12 @@
     <Compile Include="ClassKnight.cs" />
     <Compile Include="ClassPaladin.cs" />
     <Compile Include="ClassRogue.cs" />
+    <Compile Include="FormNewChampions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewChampions.Designer.cs">
+      <DependentUpon>FormNewChampions.cs</DependentUpon>
+    </Compile>
     <Compile Include="TypeHeavy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,6 +76,9 @@
     <Compile Include="Utility.cs" />
     <EmbeddedResource Include="FormChampions.resx">
       <DependentUpon>FormChampions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewChampions.resx">
+      <DependentUpon>FormNewChampions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

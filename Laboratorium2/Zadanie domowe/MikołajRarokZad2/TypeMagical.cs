@@ -6,16 +6,28 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad2
 {
-    class TypeMagical : Champion
+    abstract class TypeMagical : Champion
     {
+
+
         /// <summary>
-        /// Amount of max mana
+        /// Uses mana to cast
+        /// his abilities
         /// </summary>
-        private int mana;
+        public override void UseTypeAbility()
+        {
+            //do napisania
+        }
 
-        public int Mana { get => mana; set => mana = value; }
-
-
+        /// <summary>
+        /// Returns name of this particular
+        /// type ability
+        /// </summary>
+        /// <returns></returns>
+        public override string ReturnTypeAbilityName()
+        {
+            return "Mana";
+        }
 
     }
 }

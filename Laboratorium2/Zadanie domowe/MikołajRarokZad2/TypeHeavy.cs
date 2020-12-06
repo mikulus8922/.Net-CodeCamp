@@ -9,12 +9,24 @@ namespace MikołajRarokZad2
     abstract class TypeHeavy : Champion
     {
         /// <summary>
-        /// Amount of armor (unhealable bonus health)
-        /// that a champion wil start a mission with
+        /// Passively uses armor
+        /// to mitigate dmg dealt
+        /// to health
         /// </summary>
-        private int armor;
+        public override void UseTypeAbility()
+        {
+            //do napisania
+        }
 
-        public int Armor { get => armor; set => armor = value; }
+        /// <summary>
+        /// Returns name of this particular
+        /// type ability
+        /// </summary>
+        /// <returns></returns>
+        public override string ReturnTypeAbilityName()
+        {
+            return "Shield";
+        }
     }
 
 

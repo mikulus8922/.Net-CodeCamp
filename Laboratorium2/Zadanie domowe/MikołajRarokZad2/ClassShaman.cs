@@ -8,14 +8,8 @@ namespace MikołajRarokZad2
 {
     class ClassShaman : TypeMagical
     {
-        /// <summary>
-        /// Amount of bonus damage
-        /// </summary>
-        private int buffDamage;
 
-        public int BuffDamage { get => buffDamage; set => buffDamage = value; }
-
-        Random random = new Random();
+        Random random = new Random(Guid.NewGuid().GetHashCode());
 
         /// <summary>
         /// Shaman class constructor
@@ -23,23 +17,33 @@ namespace MikołajRarokZad2
         public ClassShaman()
         {
             HeroClass = "Shaman";
-            Health = random.Next(250, 350);
-            Defence = random.Next(0, 5);
-            Damage = random.Next(50, 100);
-            Accuracy = random.Next(50, 75);
-            Dexterity = random.Next(15, 25);
-            Inteligence = random.Next(35, 40);
-            Mana = random.Next(200, 300);
-            BuffDamage = random.Next(150, 200);
+            Health = random.Next(250, 351);
+            Defence = random.Next(0, 6);
+            Damage = random.Next(50, 101);
+            Accuracy = random.Next(50, 76);
+            Dexterity = random.Next(15, 26);
+            Inteligence = random.Next(35, 41);
+            TypeAbility = random.Next(200, 301);
+            ClassAbility = random.Next(150, 201);
         }
 
         /// <summary>
         /// Buffs the next attack of allies
         /// by the set ammount
         /// </summary>
-        public void UseDamageBuff()
+        public override void UseClassAbility()
         {
             //do napisania
+        }
+
+        /// <summary>
+        /// Returns name of this particular
+        /// class ability
+        /// </summary>
+        /// <returns></returns>
+        public override string ReturnClassAbilityName()
+        {
+            return "Buff damage";
         }
     }
 }
