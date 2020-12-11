@@ -61,7 +61,7 @@ namespace CPC2020_2_Lab3.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Data Source=SQL6010.site4now.net;Initial Catalog=DB_A55C78_BooksKredek;User Id=DB_A55C78_BooksKredek_admin;Password=Kredek123.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Data Source=.;Initial Catalog=Bookstore;Integrated Security=True.
         /// </summary>
         internal static string ConnectionString {
             get {
