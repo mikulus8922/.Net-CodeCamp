@@ -9,7 +9,7 @@ namespace MikołajRarokZad3.Repositories
 {
     public interface IRoomsRepository
     {
-        DataTable GetRoom();
+        DataTable GetRooms();
 
         /// <summary>
         /// Metoda pozwalająca zmienić ile w danym pokoju jest miejsc

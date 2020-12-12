@@ -13,13 +13,14 @@ namespace MikołajRarokZad3.Repositories
         {
             string loginQuery = $"SELECT WorkPosition FROM WorkersLoginData WHERE Login='{login}' AND Password='{password}';";
 
+ 
+
             Connection.Open();
 
             SqlCommand loginCommand = new SqlCommand(loginQuery, Connection);
             string workPosition = (string)loginCommand.ExecuteScalar();
 
             Connection.Close();
-
 
             if (workPosition.Equals("SystemAdmin") || workPosition.Equals("Owner"))
                 return "admin";

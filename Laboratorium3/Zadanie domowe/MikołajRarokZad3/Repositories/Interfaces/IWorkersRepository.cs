@@ -11,11 +11,11 @@ namespace MikołajRarokZad3.Repositories
     {
         DataTable GetWorkers();
 
-        void AddWorker(string firstName, string lastName, string workPosition, string login, string password);
+        void AddWorker(string firstName, string lastName, string workPosition);
 
         void DeleteWorker(int workerId);
 
-        void EditWorker(int workerId, string firstName, string lastName, string workPosition, string login, string password);
+        void EditWorker(int workerId, string firstName, string lastName, string workPosition);
 
     }
 }
