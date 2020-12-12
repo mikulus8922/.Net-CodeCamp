@@ -1,7 +1,7 @@
 ﻿
 namespace MikołajRarokZad3.Forms
 {
-    partial class FormReception
+    partial class FormAdmin
     {
         /// <summary>
         /// Required designer variable.

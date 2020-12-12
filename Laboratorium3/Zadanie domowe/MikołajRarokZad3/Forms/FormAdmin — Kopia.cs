@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MikołajRarokZad3.Forms
 {
-    public partial class FormReception : Form
+    public partial class FormAdmin : Form
     {
         DataTable rooms;
         DataTable blacklist;
@@ -23,7 +23,7 @@ namespace MikołajRarokZad3.Forms
         WorkersRepository workersRepository = new WorkersRepository();
         GuestsRepositoryAdmin guestsRepositoryAdmin = new GuestsRepositoryAdmin();
 
-        public FormReception()
+        public FormAdmin()
         {
             InitializeComponent();
         }
