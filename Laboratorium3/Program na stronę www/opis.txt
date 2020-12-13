@@ -1,0 +1,35 @@
+Program hotel pozwala na wyświetlanie i operacje na danych
+zapisanych w bazie danych
+
+Po włączeniu programu wyświetli się okno logowania.
+W zależności od tego jako kto się zalogujemy program 
+otworzy inne okienko z różnymi fukncjonalnościami.
+
+login/hasło
+
+admin/admin lub owner/owner:
+interfejs z pełną funkjonalnością pozwalający na
+wyświetlanie dodawanie usuwanie i edytowanie
+gości pokoi pracowników i osób na czarnej liście
+
+reception/reception
+interfejs pozwalający na prawie to samo co poprzedni
+z wyłączeniem operacji na tabeli pracowników
+
+catering/catering
+interfejs pozwalający na wyświetlenie podstawowych
+informacji o gościach (informacje podstawowe i tylko
+dane o cateringu)
+
+Naciśnięie przycisku wyświetlenia załaduje odpowiednią
+tabelę do DataGridView
+
+Po wpisaniu do textBoxów odpowiednich danych jesteśmy
+w stanie modyfikować dane w bazie danych.
+
+-------------------------------------------
+
+Niestety z powodu braku czasu nie udało mi się zaimplementować
+operacji dodawania usuwania i edytowania gości. Można ich jedynie
+wyświetlać w różny sposób w zależności od typu użytkownika.
+
