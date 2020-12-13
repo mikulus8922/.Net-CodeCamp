@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad3.Repositories
 {
+    /// <summary>
+    /// Publiczna klasa definiująca metodody związane z logowaniem
+    /// </summary>
     public class UsersRepository : Repository, IUsersRepository
     {
+        /// <summary>
+        /// metoda sprawdzająca hasło i pozwalająca sie zalogować
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public string Login(string login, string password)
         {
             string loginQuery = $"SELECT WorkPosition FROM WorkersLoginData WHERE Login='{login}' AND Password='{password}';";

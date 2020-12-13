@@ -8,8 +8,17 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad3.Repositories
 {
+    /// <summary>
+    /// Publiczna klasa definiująca metodody związane z czarną listą 
+    /// pozwalające na komunikowanie się z bazą danych i wyświetlanie ich
+    /// </summary>
     public class BlacklistRepository : Repository, IBlacklistRepository
     {      
+        /// <summary>
+        /// Metoda zwracająca tabelę
+        /// czarnej listy
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetBlacklist()
         {
             string getBlacklistQuery = "SELECT * FROM GuestsBlacklist;";
@@ -25,6 +34,12 @@ namespace MikołajRarokZad3.Repositories
             return table;
         }
 
+        /// <summary>
+        /// Metoda pozwalająca dodać osobę do czarnej listy
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="phoneNumber"></param>
         public void AddToBlacklist(string firstName, string lastName, string phoneNumber)
         {
             string addToBlacklistQuery = $"INSERT INTO GuestsBlacklist VALUES ('{firstName}', '{lastName}', '{phoneNumber}');";
@@ -37,7 +52,10 @@ namespace MikołajRarokZad3.Repositories
             Connection.Close();
         }
 
-
+        /// <summary>
+        /// Metoda pozwalająca usunąć osobę z czarnej listy
+        /// </summary>
+        /// <param name="blacklistId"></param>
         public void RemoveFromBlacklist(int blacklistId)
         {
             string removeFromBlacklistQuery = $"DELETE FROM GuestsBlacklist  Where Id ='{blacklistId}';";
@@ -50,7 +68,13 @@ namespace MikołajRarokZad3.Repositories
             Connection.Close();
         }
 
-
+        /// <summary>
+        /// Metoda pozwalająca edytować dane o osobie na czarnej liście
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="phoneNumber"></param>
         public void EditBlacklistedPerson(int Id, string firstName, string lastName, string phoneNumber)
         {
             string updateBlacklistQuery = $"UPDATE GuestsBlacklist SET FirstName='{firstName}', LastName='{lastName}', PhoneNumber='{phoneNumber}' WHERE Id='{Id}';";

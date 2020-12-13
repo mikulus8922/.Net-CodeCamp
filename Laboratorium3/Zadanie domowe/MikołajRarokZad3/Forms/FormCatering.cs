@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace MikołajRarokZad3.Forms
 {
+    /// <summary>
+    /// Klasa odpowiedzialna za funkcjonalność
+    /// okna FormCateting
+    /// </summary>
     public partial class FormCatering : Form
     {
         DataTable guests;
@@ -24,16 +28,10 @@ namespace MikołajRarokZad3.Forms
         }
 
 
-        private void ClearTextBoxes()
-        {
-            textBoxGuestId.Text = "";
-            textBoxGuestFirstName.Text = "";
-            textBoxGuestLastName.Text = "";
-            textBoxPhoneNumber.Text = "";
 
-        }
-
-
+        /// <summary>
+        /// Funkcja odświeżająca dane o gościach
+        /// </summary>
         private void RefreshDataGridViewWithGuests()
         {
             guests = guestsRepositoryCatering.GetGuests();
@@ -41,9 +39,14 @@ namespace MikołajRarokZad3.Forms
             dataGridViewMain.DataSource = guests;
         }
 
+        /// <summary>
+        /// Przycisk pozwalający wyświetlić dane o gościach
+        /// </summary>
         private void buttonShowGuests_Click(object sender, EventArgs e)
         {
             RefreshDataGridViewWithGuests();
         }
+
+
     }
 }

@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad3.Repositories
 {
+    /// <summary>
+    /// Interfejs definiujący metody związane z komunikacją
+    /// z bazą danych dla tabeli RoomsRepository
+    /// </summary>
     public interface IRoomsRepository
     {
+        /// <summary>
+        /// Abstrakcyjna metoda pozwalajaca zwrocić
+        /// tabelę pokoi
+        /// </summary>
+        /// <returns></returns>
         DataTable GetRooms();
 
         /// <summary>

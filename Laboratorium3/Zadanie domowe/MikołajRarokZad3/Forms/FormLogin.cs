@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace MikołajRarokZad3.Forms
 {
+    /// <summary>
+    /// Klasa odpowiedzialna za funkcjonalność
+    /// okna FormLogin
+    /// </summary>
     public partial class FormLogin : Form
     {
         UsersRepository usersRepository = new UsersRepository();
@@ -21,7 +25,11 @@ namespace MikołajRarokZad3.Forms
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Przycisk realizujący funkcję próby zalogowania
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonTryToLogIn_Click(object sender, EventArgs e)
         {
             string login = textBoxLogin.Text;

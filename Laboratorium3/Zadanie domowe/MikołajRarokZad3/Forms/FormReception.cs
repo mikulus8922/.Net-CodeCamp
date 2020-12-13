@@ -11,16 +11,18 @@ using System.Windows.Forms;
 
 namespace MikołajRarokZad3.Forms
 {
+    /// <summary>
+    /// Klasa odpowiedzialna za funkcjonalność
+    /// okna FormReception
+    /// </summary>
     public partial class FormReception : Form
     {
         DataTable rooms;
         DataTable blacklist;
-        DataTable workers;
         DataTable guests;
 
         RoomsRepository roomsRepository = new RoomsRepository();
         BlacklistRepository blacklistRepository = new BlacklistRepository();
-        WorkersRepository workersRepository = new WorkersRepository();
         GuestsRepositoryAdmin guestsRepositoryAdmin = new GuestsRepositoryAdmin();
 
         public FormReception()
@@ -28,7 +30,9 @@ namespace MikołajRarokZad3.Forms
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Funkcja czyszcząca textboxy
+        /// </summary>
         private void ClearTextBoxes()
         {
             textBoxRoomId.Text = "";
@@ -42,12 +46,11 @@ namespace MikołajRarokZad3.Forms
             textBoxBlacklistLastName.Text = "";
             textBoxBlacklistPhoneNumber.Text = "";
 
-            textBoxWorkerId.Text = "";
-            textBoxWorkerFirstName.Text = "";
-            textBoxWorkerLastName.Text = "";
-            textBoxWorkerWorkPosition.Text = "";
         }
 
+        /// <summary>
+        /// Funkcja odświeżająca dane o pokojach
+        /// </summary>
         private void RefreshDataGridViewWithRooms()
         {
             rooms = roomsRepository.GetRooms();
@@ -55,13 +58,21 @@ namespace MikołajRarokZad3.Forms
             dataGridViewMain.DataSource = rooms;
         }
 
-
+        /// <summary>
+        /// Przycisk wyświetlający pokoje w DataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonShowRooms_Click(object sender, EventArgs e)
         {
             RefreshDataGridViewWithRooms();
         }
 
-
+        /// <summary>
+        /// Przycisk pozwalający zmienić ilość osób w pokoju
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonEditRoom_Click(object sender, EventArgs e)
         {
 
@@ -75,7 +86,10 @@ namespace MikołajRarokZad3.Forms
             ClearTextBoxes();
             
         }
-           
+
+        /// <summary>
+        /// Funkcja odświeżająca dane o czarnej liście
+        /// </summary>
         private void RefreshDataGridViewWithBlacklist()
         {
             blacklist = blacklistRepository.GetBlacklist();
@@ -83,11 +97,17 @@ namespace MikołajRarokZad3.Forms
             dataGridViewMain.DataSource = blacklist;
         }
 
+        /// <summary>
+        /// Przycisk pozwalający wyświetlić czarną listę
+        /// </summary>
         private void buttonShowBlacklist_Click(object sender, EventArgs e)
         {
             RefreshDataGridViewWithBlacklist();
         }
 
+        /// <summary>
+        /// Przycisk pozwalający dodać osobę do czarnej listy
+        /// </summary>
         private void buttonAddToBlacklist_Click(object sender, EventArgs e)
         {
             string firstName = textBoxBlacklistFirstName.Text;
@@ -100,6 +120,9 @@ namespace MikołajRarokZad3.Forms
             ClearTextBoxes();
         }
 
+        /// <summary>
+        /// Przycisk pozwalający usunąć osobę z czarnej listy
+        /// </summary>
         private void buttonRemoveFromBlacklist_Click(object sender, EventArgs e)
         {
             int blacklistId = int.Parse(textBoxBlacklistId.Text);
@@ -111,6 +134,11 @@ namespace MikołajRarokZad3.Forms
             ClearTextBoxes();
         }
 
+        /// <summary>
+        /// Przycisk pozwalający zmienić dane osoby na czarnej liście
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonEditBlacklist_Click(object sender, EventArgs e)
         {
             int blacklistId = int.Parse(textBoxBlacklistId.Text);
@@ -124,55 +152,9 @@ namespace MikołajRarokZad3.Forms
             ClearTextBoxes();
         }
 
-        private void RefreshDataGridViewWithWorkers()
-        {
-            workers = workersRepository.GetWorkers();
-
-            dataGridViewMain.DataSource = workers;
-        }
-
-        private void buttonShowWorkers_Click(object sender, EventArgs e)
-        {
-            RefreshDataGridViewWithWorkers();
-        }
-
-        private void buttonAddWorker_Click(object sender, EventArgs e)
-        {
-            
-            string firstname = textBoxWorkerFirstName.Text;
-            string lastName = textBoxWorkerLastName.Text;
-            string workPosition = textBoxWorkerWorkPosition.Text;
-
-            workersRepository.AddWorker(firstname, lastName, workPosition);
-
-            RefreshDataGridViewWithWorkers();
-            ClearTextBoxes();
-        }
-
-        private void buttonRemoveWorker_Click(object sender, EventArgs e)
-        {
-            int workerId = int.Parse(textBoxWorkerId.Text);
-
-            workersRepository.DeleteWorker(workerId);
-
-            RefreshDataGridViewWithWorkers();
-            ClearTextBoxes();
-        }
-
-        private void buttonEditWorker_Click(object sender, EventArgs e)
-        {
-            int workerId = int.Parse(textBoxWorkerId.Text);
-            string firstName = textBoxWorkerFirstName.Text;
-            string lastName = textBoxWorkerLastName.Text;
-            string workPosition = textBoxWorkerWorkPosition.Text;
-
-            workersRepository.EditWorker(workerId, firstName, lastName, workPosition);
-
-            RefreshDataGridViewWithWorkers();
-            ClearTextBoxes();
-        }
-
-
+        /// <summary>
+        /// Funkcja odświeżająca dane o gościach
+        /// </summary>
         private void RefreshDataGridViewWithGuests()
         {
             guests = guestsRepositoryAdmin.GetGuests();
@@ -180,6 +162,9 @@ namespace MikołajRarokZad3.Forms
             dataGridViewMain.DataSource = guests;
         }
 
+        /// <summary>
+        /// Przycisk pozwalający wyświetlić dane o gościach
+        /// </summary>
         private void buttonShowGuests_Click(object sender, EventArgs e)
         {
             RefreshDataGridViewWithGuests();

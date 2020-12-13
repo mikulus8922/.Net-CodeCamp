@@ -8,8 +8,17 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad3.Repositories
 {
+    /// <summary>
+    /// Publiczna klasa definiująca metodody związane z pracownikami 
+    /// pozwalające na komunikowanie się z bazą danych i wyświetlanie ich
+    /// </summary>
     public class WorkersRepository : Repository, IWorkersRepository
-    {    
+    {
+        /// <summary>
+        /// Metoda zwracająca tabelę
+        /// pracownikami
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetWorkers()
         {
             string getWorkersQuery = "SELECT Workers.Id, Workers.FirstName, Workers.LastName, WorkersLoginData.WorkPosition FROM Workers JOIN WorkersLoginData ON Workers.AccountId=WorkersLoginData.Id;";
@@ -24,6 +33,13 @@ namespace MikołajRarokZad3.Repositories
 
             return table;
         }
+
+        /// <summary>
+        /// Metoda pozwalająca dodać pracownika do bazy danych
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="workPosition"></param>
         public void AddWorker(string firstName, string lastName, string workPosition)
         {
             string getAccountIdQuery = $"SELECT Id FROM WorkersLoginData WHERE WorkPosition='{workPosition}';";
@@ -41,6 +57,10 @@ namespace MikołajRarokZad3.Repositories
             Connection.Close();
         }
 
+        /// <summary>
+        /// Metoda pozwalająca na usunięcie pracownika z bazy danych
+        /// </summary>
+        /// <param name="workerId"></param>
         public void DeleteWorker(int workerId)
         {
             string removeFromWorkers = $"DELETE FROM Workers Where Id ='{workerId}';";
@@ -53,6 +73,14 @@ namespace MikołajRarokZad3.Repositories
             Connection.Close();
         }
 
+
+        /// <summary>
+        /// Metoda pozwalająca na edytowanie danych o pracowniku w bazie danych
+        /// </summary>
+        /// <param name="workerId"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="workPosition"></param>
         public void EditWorker(int workerId, string firstName, string lastName, string workPosition)
         {
             string getAccountIdQuery = $"SELECT Id FROM WorkersLoginData WHERE WorkPosition='{workPosition}';";
