@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.Models
 {
-    class DataBaseContext : DbContext
+    public class DataBaseContext : DbContext
     {
         public DataBaseContext() : base("ConnectionString")
         {
-
         }
 
         public DbSet<GuestBlacklist> GuestsBlacklist { get; set; }

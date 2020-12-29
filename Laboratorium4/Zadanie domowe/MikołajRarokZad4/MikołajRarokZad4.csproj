@@ -83,6 +83,12 @@
     <Compile Include="Forms\FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\MapperProfile.cs" />
+    <Compile Include="Migrations\202012292145435_InitialMigration.cs" />
+    <Compile Include="Migrations\202012292145435_InitialMigration.designer.cs">
+      <DependentUpon>202012292145435_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\Entities\Guest.cs" />
     <Compile Include="Models\Entities\GuestAccess.cs" />
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012292145435_InitialMigration.resx">
+      <DependentUpon>202012292145435_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.Models.Entities
 {
-    class GuestBlacklist
+    public class GuestBlacklist
     {
         [Key]
         public int Id { get; set; }
@@ -24,6 +24,6 @@ namespace MikołajRarokZad4.Models.Entities
         [MaxLength(50)]
         public string PhoneNumber { get; set; }
 
-        public virtual ICollection<GuestBlacklist> GuestsBlacklist { get; set; }
+       
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.Models.Entities
 {
-    class Worker
+    public class Worker
     {
         [Key]
         public int Id { get; set; }
@@ -27,6 +27,6 @@ namespace MikołajRarokZad4.Models.Entities
         [ForeignKey("AccountId")]
         public virtual WorkerLoginData WorkerLoginData { get; set; }
 
-        public virtual ICollection<Worker> Workers { get; set; }
+        
     }
 }

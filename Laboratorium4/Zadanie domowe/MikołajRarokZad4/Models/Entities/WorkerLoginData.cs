@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.Models.Entities
 {
-    class WorkerLoginData
+    public class WorkerLoginData
     {
         [Key]
         public int Id { get; set; }
@@ -24,6 +24,6 @@ namespace MikołajRarokZad4.Models.Entities
         [MaxLength(50)]
         public string WorkPosition { get; set; }
 
-        public virtual ICollection<WorkerLoginData> WorkersLoginData { get; set; }
+        public virtual ICollection<Worker> Workers { get; set; }
     }
 }

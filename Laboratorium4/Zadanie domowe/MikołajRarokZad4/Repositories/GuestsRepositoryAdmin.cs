@@ -21,15 +21,11 @@ namespace MikołajRarokZad4.Repositories
         /// <returns></returns>
         public DataTable GetGuests()
         {
-            string getGuestsQuery = "SELECT Guests.Id, Guests.FirstName, Guests.LastName, Guests.PhoneNumber, Rooms.Number, GuestsBooking.BookedIn, GuestsBooking.BookedOut, GuestsCatering.Breakfast, GuestsCatering.Lunch, GuestsCatering.Dinner, GuestsAccess.GymAccess, GuestsAccess.SpaAccess, GuestsAccess.PoolAccess FROM Guests INNER JOIN Rooms ON Guests.RoomId=Rooms.Id INNER JOIN GuestsBooking ON Guests.Id=GuestsBooking.GuestId INNER JOIN GuestsCatering ON Guests.Id=GuestsCatering.GuestId INNER JOIN GuestsAccess ON Guests.Id=GuestsAccess.GuestId;";
 
-            Connection.Open();
 
-            SqlDataAdapter adapter = new SqlDataAdapter(getGuestsQuery, Connection);
             DataTable table = new DataTable();
-            adapter.Fill(table);
 
-            Connection.Close();
+
 
             return table;
         }

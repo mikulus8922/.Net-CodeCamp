@@ -21,15 +21,12 @@ namespace MikołajRarokZad4.Repositories
         /// <returns></returns>
         public DataTable GetBlacklist()
         {
-            string getBlacklistQuery = "SELECT * FROM GuestsBlacklist;";
 
-            Connection.Open();
 
-            SqlDataAdapter adapter = new SqlDataAdapter(getBlacklistQuery, Connection);
+
+
             DataTable table = new DataTable();
-            adapter.Fill(table);
 
-            Connection.Close();
 
             return table;
         }
@@ -42,14 +39,7 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="phoneNumber"></param>
         public void AddToBlacklist(string firstName, string lastName, string phoneNumber)
         {
-            string addToBlacklistQuery = $"INSERT INTO GuestsBlacklist VALUES ('{firstName}', '{lastName}', '{phoneNumber}');";
 
-            Connection.Open();
-
-            SqlCommand commandAddToBlacklist = new SqlCommand(addToBlacklistQuery, Connection);
-            commandAddToBlacklist.ExecuteNonQuery();
-
-            Connection.Close();
         }
 
         /// <summary>
@@ -58,14 +48,7 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="blacklistId"></param>
         public void RemoveFromBlacklist(int blacklistId)
         {
-            string removeFromBlacklistQuery = $"DELETE FROM GuestsBlacklist  Where Id ='{blacklistId}';";
 
-            Connection.Open();
-
-            SqlCommand commandRemoveFromBlacklist = new SqlCommand(removeFromBlacklistQuery, Connection);
-            commandRemoveFromBlacklist.ExecuteNonQuery();
-
-            Connection.Close();
         }
 
         /// <summary>
@@ -77,14 +60,7 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="phoneNumber"></param>
         public void EditBlacklistedPerson(int Id, string firstName, string lastName, string phoneNumber)
         {
-            string updateBlacklistQuery = $"UPDATE GuestsBlacklist SET FirstName='{firstName}', LastName='{lastName}', PhoneNumber='{phoneNumber}' WHERE Id='{Id}';";
 
-            Connection.Open();
-
-            SqlCommand commandEditBlacklist = new SqlCommand(updateBlacklistQuery, Connection);
-            commandEditBlacklist.ExecuteNonQuery();
-
-            Connection.Close();
         }
     }
 }

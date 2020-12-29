@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.Models.Entities
 {
-    class GuestBooking
+    public class GuestBooking
     {
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         public DateTime BookedIn { get; set; }
 
@@ -22,6 +25,6 @@ namespace MikołajRarokZad4.Models.Entities
         [ForeignKey("GuestId")]
         public virtual Guest Guest { get; set; }
 
-        public virtual ICollection<GuestBooking> GuestsBooking { get; set; }
+        
     }
 }

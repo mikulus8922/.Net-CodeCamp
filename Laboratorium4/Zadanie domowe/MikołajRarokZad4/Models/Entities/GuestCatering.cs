@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.Models.Entities
 {
-    class GuestCatering
+    public class GuestCatering
     {
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         public bool Breakfast { get; set; }
 
@@ -25,6 +28,6 @@ namespace MikołajRarokZad4.Models.Entities
         [ForeignKey("GuestId")]
         public virtual Guest Guest { get; set; }
 
-        public virtual ICollection<GuestCatering> GuestsCatering { get; set; }
+        
     }
 }

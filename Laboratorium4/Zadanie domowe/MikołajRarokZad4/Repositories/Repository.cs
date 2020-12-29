@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AutoMapper;
+using MikołajRarokZad4.Infrastructure;
+using MikołajRarokZad4.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -13,18 +16,12 @@ namespace MikołajRarokZad4.Repositories
     /// </summary>
     public abstract class Repository
     {
-        /// <summary>
-        /// Zmienna przechowujaca połączenie z bazą danych
-        /// </summary>
-        protected readonly SqlConnection Connection;
+        //zmienna przechowująca kontekst Bazy danych
+        protected readonly DataBaseContext DbContext = new DataBaseContext();
 
-        /// <summary>
-        /// Konstruktor
-        /// </summary>
-        public Repository()
-        {
-            //Inicjalizacja połączenia z bazą danych
-            Connection = new SqlConnection(Properties.Resources.ConnectionString);
-        }
+        //zmienna konfiguracji mappera
+        private static MapperConfiguration MapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new MapperProfile()));
+        //zmienna mappera
+        protected readonly IMapper Mapper = MapperConfig.CreateMapper();
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.Models.Entities
 {
-    class Room
+    public class Room
     {
         [Key]
         public int Id { get; set; }
@@ -21,6 +21,6 @@ namespace MikołajRarokZad4.Models.Entities
         [Required]
         public int Floor { get; set; }
 
-        public virtual ICollection<Room> Rooms { get; set; }
+        public virtual ICollection<Guest> Guests { get; set; }
     }
 }

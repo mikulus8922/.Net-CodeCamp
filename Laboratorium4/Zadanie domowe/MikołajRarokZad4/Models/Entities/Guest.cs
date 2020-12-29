@@ -9,7 +9,7 @@ using MikołajRarokZad4.Models.Entities;
 
 namespace MikołajRarokZad4.Models.Entities
 {
-    class Guest
+    public class Guest
     {
         [Key]
         public int Id { get; set; }
@@ -32,6 +32,11 @@ namespace MikołajRarokZad4.Models.Entities
         [ForeignKey("RoomId")]
         public virtual Room Room { get; set; }
 
-        public virtual ICollection<Guest> Books { get; set; }
+        public virtual ICollection<GuestAccess> GuestsAccess { get; set; }
+
+        public virtual ICollection<GuestBooking> GuestsBooking { get; set; }
+
+        public virtual ICollection<GuestCatering> GuestsCatering { get; set; }
+
     }
 }

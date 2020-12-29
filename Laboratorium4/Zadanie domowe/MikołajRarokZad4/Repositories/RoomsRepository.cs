@@ -17,14 +17,10 @@ namespace MikołajRarokZad4.Repositories
 
         public DataTable GetRooms()
         {
-            Connection.Open();
-
-            string getRoomsQuery = "SELECT * FROM Rooms;";
-            SqlDataAdapter adapter = new SqlDataAdapter(getRoomsQuery, Connection);
             DataTable table = new DataTable();
-            adapter.Fill(table);
 
-            Connection.Close();
+
+
 
             return table;
         }
@@ -38,12 +34,6 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="roomCapacity"></param>
         public void EditRoomCapacity(int roomId, int roomCapacity)
         {
-            Connection.Open();
-
-            string updateRoomCapacityQuery = $"UPDATE Rooms SET RoomCapacity='{roomCapacity}' WHERE Id='{roomId}';";
-            SqlCommand commandUpdateRoom = new SqlCommand(updateRoomCapacityQuery, Connection);
-            commandUpdateRoom.ExecuteNonQuery();
-            Connection.Close();
 
         }
 
