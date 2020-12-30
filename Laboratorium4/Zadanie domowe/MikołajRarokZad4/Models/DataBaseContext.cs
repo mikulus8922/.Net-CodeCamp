@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.Models
 {
+    /// <summary>
+    /// Klasa entity definiująca strukturę
+    /// bazy danych
+    /// </summary>
     public class DataBaseContext : DbContext
     {
         public DataBaseContext() : base("ConnectionString")

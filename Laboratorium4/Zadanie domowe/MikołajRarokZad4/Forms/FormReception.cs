@@ -17,9 +17,6 @@ namespace MikołajRarokZad4.Forms
     /// </summary>
     public partial class FormReception : Form
     {
-        DataTable rooms;
-        DataTable blacklist;
-        DataTable guests;
 
         RoomsRepository roomsRepository = new RoomsRepository();
         BlacklistRepository blacklistRepository = new BlacklistRepository();
@@ -53,9 +50,7 @@ namespace MikołajRarokZad4.Forms
         /// </summary>
         private void RefreshDataGridViewWithRooms()
         {
-            rooms = roomsRepository.GetRooms();
-
-            dataGridViewMain.DataSource = rooms;
+            dataGridViewMain.DataSource = roomsRepository.GetRooms();
         }
 
         /// <summary>
@@ -92,9 +87,7 @@ namespace MikołajRarokZad4.Forms
         /// </summary>
         private void RefreshDataGridViewWithBlacklist()
         {
-            blacklist = blacklistRepository.GetBlacklist();
-
-            dataGridViewMain.DataSource = blacklist;
+            dataGridViewMain.DataSource = blacklistRepository.GetBlacklist();
         }
 
         /// <summary>
@@ -157,9 +150,7 @@ namespace MikołajRarokZad4.Forms
         /// </summary>
         private void RefreshDataGridViewWithGuests()
         {
-            guests = guestsRepositoryAdmin.GetGuests();
-
-            dataGridViewMain.DataSource = guests;
+            dataGridViewMain.DataSource = guestsRepositoryAdmin.GetGuests();
         }
 
         /// <summary>

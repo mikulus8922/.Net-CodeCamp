@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.Models.Entities
 {
+    /// <summary>
+    /// Klasa entity definiująca strukturę
+    /// tabeli Room w bazie danych
+    /// </summary>
     public class Room
     {
         [Key]

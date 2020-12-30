@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.ViewModels
 {
+    /// <summary>
+    /// Model pokoi
+    /// </summary>
     public class RoomViewModel
     {
         public int Id { get; set; }

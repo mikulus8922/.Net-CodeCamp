@@ -9,6 +9,10 @@ using MikołajRarokZad4.Models.Entities;
 
 namespace MikołajRarokZad4.Models.Entities
 {
+    /// <summary>
+    /// Klasa entity definiująca strukturę
+    /// tabeli Guest w bazie danych
+    /// </summary>
     public class Guest
     {
         [Key]

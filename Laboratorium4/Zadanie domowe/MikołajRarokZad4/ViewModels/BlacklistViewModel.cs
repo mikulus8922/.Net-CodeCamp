@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.ViewModels
 {
+    /// <summary>
+    /// Model czarnej listy
+    /// </summary>
     public class BlacklistViewModel
     {
         public int Id { get; set; }

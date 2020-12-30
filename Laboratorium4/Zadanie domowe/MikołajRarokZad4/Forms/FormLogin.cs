@@ -57,5 +57,22 @@ namespace MikołajRarokZad4.Forms
             textBoxLogin.Text = "";
             textBoxPassword.Text = "";
         }
+
+        private void buttonTryToRegister_Click(object sender, EventArgs e)
+        {
+            string login = textBoxLogin.Text;
+            string password = textBoxPassword.Text;
+            string workPosition = textBoxWorkPosition.Text;
+
+            //wywołujemy metode rejestracji i wyświetlamy stosowny komunikat w zależności d tego co zwraca
+            if (usersRepository.Register(login, password, workPosition))
+            {
+                MessageBox.Show("Konto zostało utworzone, możesz się teraz zalogować");
+            }
+            else
+            {
+                MessageBox.Show("Taki użytkownik już istnieje");
+            }
+        }
     }
 }

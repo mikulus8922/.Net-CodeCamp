@@ -11,13 +11,17 @@ namespace MikołajRarokZad4.Infrastructure
 {
     public class MapperProfile : Profile
     {
+        /// <summary>
+        /// Klasa z profilem mapowania, zawierająca konfiguracje map
+        /// </summary>
         public MapperProfile()
         {
-            //mapa dla modelu blacklist
+            
             CreateMap<GuestBlacklist, BlacklistViewModel>();
 
 
             CreateMap<Room, RoomViewModel>();
+
 
 
             CreateMap<Guest, GuestAdminViewModel>()

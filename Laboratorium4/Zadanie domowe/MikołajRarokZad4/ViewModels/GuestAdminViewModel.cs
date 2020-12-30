@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.ViewModels
 {
+    /// <summary>
+    /// Model gościa w wersji admin przeznaczony do użytku
+    /// w profilu administratora/recepcjonisty
+    /// </summary>
     public class GuestAdminViewModel
     {
         public int Id { get; set; }

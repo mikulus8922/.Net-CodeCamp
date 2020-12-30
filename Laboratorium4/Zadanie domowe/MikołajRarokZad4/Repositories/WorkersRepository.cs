@@ -82,5 +82,10 @@ namespace MikołajRarokZad4.Repositories
 
             return DbContext.SaveChanges() > 0;
         }
+
+        internal void AddWorker(string firstname, string lastName, object phoneNumber, string login)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

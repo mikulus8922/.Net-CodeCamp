@@ -17,7 +17,6 @@ namespace MikołajRarokZad4.Forms
     /// </summary>
     public partial class FormCatering : Form
     {
-        DataTable guests;
 
 
         GuestsRepositoryCatering guestsRepositoryCatering = new GuestsRepositoryCatering();
@@ -34,9 +33,7 @@ namespace MikołajRarokZad4.Forms
         /// </summary>
         private void RefreshDataGridViewWithGuests()
         {
-            guests = guestsRepositoryCatering.GetGuests();
-
-            dataGridViewMain.DataSource = guests;
+            dataGridViewMain.DataSource = guestsRepositoryCatering.GetGuests();
         }
 
         /// <summary>

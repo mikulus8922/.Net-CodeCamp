@@ -44,7 +44,7 @@ namespace MikołajRarokZad4.Forms
             this.textBoxBlacklistLastName = new System.Windows.Forms.TextBox();
             this.textBoxBlacklistFirstName = new System.Windows.Forms.TextBox();
             this.textBoxBlacklistId = new System.Windows.Forms.TextBox();
-            this.textBoxWorkerWorkPosition = new System.Windows.Forms.TextBox();
+            this.textBoxWorkerLogin = new System.Windows.Forms.TextBox();
             this.textBoxWorkerLastName = new System.Windows.Forms.TextBox();
             this.textBoxWorkerFirstName = new System.Windows.Forms.TextBox();
             this.textBoxWorkerId = new System.Windows.Forms.TextBox();
@@ -77,7 +77,7 @@ namespace MikołajRarokZad4.Forms
             this.labelWorkerId = new System.Windows.Forms.Label();
             this.labelWorkerFirsName = new System.Windows.Forms.Label();
             this.labelWorkerLastName = new System.Windows.Forms.Label();
-            this.labelWorkerPosition = new System.Windows.Forms.Label();
+            this.labelWorkerLogin = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -205,12 +205,12 @@ namespace MikołajRarokZad4.Forms
             this.textBoxBlacklistId.Size = new System.Drawing.Size(108, 20);
             this.textBoxBlacklistId.TabIndex = 12;
             // 
-            // textBoxWorkerWorkPosition
+            // textBoxWorkerLogin
             // 
-            this.textBoxWorkerWorkPosition.Location = new System.Drawing.Point(366, 485);
-            this.textBoxWorkerWorkPosition.Name = "textBoxWorkerWorkPosition";
-            this.textBoxWorkerWorkPosition.Size = new System.Drawing.Size(112, 20);
-            this.textBoxWorkerWorkPosition.TabIndex = 23;
+            this.textBoxWorkerLogin.Location = new System.Drawing.Point(366, 485);
+            this.textBoxWorkerLogin.Name = "textBoxWorkerLogin";
+            this.textBoxWorkerLogin.Size = new System.Drawing.Size(112, 20);
+            this.textBoxWorkerLogin.TabIndex = 23;
             // 
             // textBoxWorkerLastName
             // 
@@ -505,22 +505,22 @@ namespace MikołajRarokZad4.Forms
             this.labelWorkerLastName.Text = "Nazwisko pracownika";
             this.labelWorkerLastName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelWorkerPosition
+            // labelWorkerLogin
             // 
-            this.labelWorkerPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelWorkerPosition.Location = new System.Drawing.Point(366, 440);
-            this.labelWorkerPosition.Name = "labelWorkerPosition";
-            this.labelWorkerPosition.Size = new System.Drawing.Size(112, 34);
-            this.labelWorkerPosition.TabIndex = 62;
-            this.labelWorkerPosition.Text = "Stanowisko pracownika";
-            this.labelWorkerPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelWorkerLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelWorkerLogin.Location = new System.Drawing.Point(366, 440);
+            this.labelWorkerLogin.Name = "labelWorkerLogin";
+            this.labelWorkerLogin.Size = new System.Drawing.Size(112, 34);
+            this.labelWorkerLogin.TabIndex = 62;
+            this.labelWorkerLogin.Text = "Login Pracownika";
+            this.labelWorkerLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 572);
-            this.Controls.Add(this.labelWorkerPosition);
+            this.Controls.Add(this.labelWorkerLogin);
             this.Controls.Add(this.labelWorkerLastName);
             this.Controls.Add(this.labelWorkerFirsName);
             this.Controls.Add(this.labelWorkerId);
@@ -546,7 +546,7 @@ namespace MikołajRarokZad4.Forms
             this.Controls.Add(this.buttonRemoveGuest);
             this.Controls.Add(this.buttonAddGuest);
             this.Controls.Add(this.buttonShowGuests);
-            this.Controls.Add(this.textBoxWorkerWorkPosition);
+            this.Controls.Add(this.textBoxWorkerLogin);
             this.Controls.Add(this.textBoxWorkerLastName);
             this.Controls.Add(this.textBoxWorkerFirstName);
             this.Controls.Add(this.textBoxWorkerId);
@@ -594,7 +594,7 @@ namespace MikołajRarokZad4.Forms
         private System.Windows.Forms.TextBox textBoxBlacklistLastName;
         private System.Windows.Forms.TextBox textBoxBlacklistFirstName;
         private System.Windows.Forms.TextBox textBoxBlacklistId;
-        private System.Windows.Forms.TextBox textBoxWorkerWorkPosition;
+        private System.Windows.Forms.TextBox textBoxWorkerLogin;
         private System.Windows.Forms.TextBox textBoxWorkerLastName;
         private System.Windows.Forms.TextBox textBoxWorkerFirstName;
         private System.Windows.Forms.TextBox textBoxWorkerId;
@@ -627,6 +627,6 @@ namespace MikołajRarokZad4.Forms
         private System.Windows.Forms.Label labelWorkerId;
         private System.Windows.Forms.Label labelWorkerFirsName;
         private System.Windows.Forms.Label labelWorkerLastName;
-        private System.Windows.Forms.Label labelWorkerPosition;
+        private System.Windows.Forms.Label labelWorkerLogin;
     }
 }

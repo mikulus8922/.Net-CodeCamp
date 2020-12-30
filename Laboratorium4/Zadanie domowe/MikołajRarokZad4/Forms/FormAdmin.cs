@@ -17,11 +17,6 @@ namespace MikołajRarokZad4.Forms
     /// </summary>
     public partial class FormAdmin : Form
     {
-        DataTable rooms;
-        DataTable blacklist;
-        DataTable workers;
-        DataTable guests;
-
         RoomsRepository roomsRepository = new RoomsRepository();
         BlacklistRepository blacklistRepository = new BlacklistRepository();
         WorkersRepository workersRepository = new WorkersRepository();
@@ -51,7 +46,7 @@ namespace MikołajRarokZad4.Forms
             textBoxWorkerId.Text = "";
             textBoxWorkerFirstName.Text = "";
             textBoxWorkerLastName.Text = "";
-            textBoxWorkerWorkPosition.Text = "";
+            textBoxWorkerLogin.Text = "";
         }
 
         /// <summary>
@@ -59,9 +54,7 @@ namespace MikołajRarokZad4.Forms
         /// </summary>
         private void RefreshDataGridViewWithRooms()
         {
-            rooms = roomsRepository.GetRooms();
-
-            dataGridViewMain.DataSource = rooms;
+            dataGridViewMain.DataSource = roomsRepository.GetRooms();
         }
 
         /// <summary>
@@ -97,10 +90,9 @@ namespace MikołajRarokZad4.Forms
         /// Funkcja odświeżająca dane o czarnej liście
         /// </summary>
         private void RefreshDataGridViewWithBlacklist()
-        {
-            blacklist = blacklistRepository.GetBlacklist();
+        { 
 
-            dataGridViewMain.DataSource = blacklist;
+            dataGridViewMain.DataSource = blacklistRepository.GetBlacklist();
         }
 
         /// <summary>
@@ -163,9 +155,7 @@ namespace MikołajRarokZad4.Forms
         /// </summary>
         private void RefreshDataGridViewWithWorkers()
         {
-            workers = workersRepository.GetWorkers();
-
-            dataGridViewMain.DataSource = workers;
+            dataGridViewMain.DataSource = workersRepository.GetWorkers();
         }
 
         /// <summary>
@@ -184,9 +174,9 @@ namespace MikołajRarokZad4.Forms
             
             string firstname = textBoxWorkerFirstName.Text;
             string lastName = textBoxWorkerLastName.Text;
-            string workPosition = textBoxWorkerWorkPosition.Text;
+            string login = textBoxWorkerLogin.Text;
 
-            workersRepository.AddWorker(firstname, lastName, workPosition);
+            workersRepository.AddWorker(firstname, lastName, login);
 
             RefreshDataGridViewWithWorkers();
             ClearTextBoxes();
@@ -213,9 +203,9 @@ namespace MikołajRarokZad4.Forms
             int workerId = int.Parse(textBoxWorkerId.Text);
             string firstName = textBoxWorkerFirstName.Text;
             string lastName = textBoxWorkerLastName.Text;
-            string workPosition = textBoxWorkerWorkPosition.Text;
+            string workPosition = textBoxWorkerLogin.Text;
 
-            workersRepository.EditWorker(workerId, firstName, lastName, workPosition);
+           
 
             RefreshDataGridViewWithWorkers();
             ClearTextBoxes();
@@ -226,9 +216,8 @@ namespace MikołajRarokZad4.Forms
         /// </summary>
         private void RefreshDataGridViewWithGuests()
         {
-            guests = guestsRepositoryAdmin.GetGuests();
 
-            dataGridViewMain.DataSource = guests;
+            dataGridViewMain.DataSource = guestsRepositoryAdmin.GetGuests();
         }
 
         /// <summary>

@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.Models.Entities
 {
+    /// <summary>
+    /// Klasa entity definiująca strukturę
+    /// tabeli GuestBooking w bazie danych
+    /// </summary>
     public class GuestBooking
     {
         [Key]
