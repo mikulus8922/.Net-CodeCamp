@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MikołajRarokZad4.Models.Entities;
+using MikołajRarokZad4.Repositories.Interfaces;
+using MikołajRarokZad4.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,58 +15,18 @@ namespace MikołajRarokZad4.Repositories
     /// Publiczna klasa definiująca metodody związane z cateringiem
     /// pozwalające na komunikowanie się z bazą danych i wyświetlanie ich
     /// </summary>
-    public class GuestsRepositoryCatering : Repository, IGuestsRepository
+    public class GuestsRepositoryCatering : Repository, IGuestsRepositoryCatering
     {
         /// <summary>
         /// Metoda zwracająca tabelę
-        /// gości w wersji "catering"
+        /// gości w wersji "admin"
         /// </summary>
         /// <returns></returns>
-        public DataTable GetGuests()
+        public List<GuestCateringViewModel> GetGuests()
         {
-            DataTable table = new DataTable();
-
-
-
-
-            return table;
+            List<Guest> guests = DbContext.Guests.ToList();
+            return Mapper.Map<List<Guest>, List<GuestCateringViewModel>>(guests);
         }
-
-        /// <summary>
-        /// Metoda pozwalająca dodać gościa do bazy danych
-        /// </summary>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
-        /// <param name="phoneNumber"></param>
-        /// <param name="roomId"></param>
-        public void AddGuest(string firstName, string lastName, string phoneNumber, int roomId)
-        {
-            return;
-        }
-
-
-        /// <summary>
-        /// Metoda pozwalająca na usunięcie gościa z bazy danych
-        /// </summary>
-        /// <param name="guestId"></param>
-        public void DeleteGuest(int guestId)
-        {
-            return;
-        }
-
-        /// <summary>
-        /// Metoda pozwalająca na edytowanie danych o gościu w bazie danych
-        /// </summary>
-        /// <param name="guestId"></param>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
-        /// <param name="phoneNumber"></param>
-        /// <param name="roomId"></param>
-        public void EditGuest(int guestId, string firstName, string lastName, string phoneNumber, int roomId)
-        {
-            return;
-        }
-
 
     }
 }

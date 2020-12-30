@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MikołajRarokZad4.Models.Entities;
+using MikołajRarokZad4.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,23 +14,20 @@ namespace MikołajRarokZad4.Repositories
     /// Publiczna klasa definiująca metodody związane z gośćmi w wersji "admin"
     /// pozwalające na komunikowanie się z bazą danych i wyświetlanie ich
     /// </summary>
-    public class GuestsRepositoryAdmin : Repository, IGuestsRepository
+    public class GuestsRepositoryAdmin : Repository, IGuestsRepositoryAdmin
     {
+
         /// <summary>
         /// Metoda zwracająca tabelę
         /// gości w wersji "admin"
         /// </summary>
         /// <returns></returns>
-        public DataTable GetGuests()
+        public List<GuestAdminViewModel> GetGuests()
         {
-
-
-            DataTable table = new DataTable();
-
-
-
-            return table;
+            List<Guest> guests = DbContext.Guests.ToList();
+            return Mapper.Map<List<Guest>, List<GuestAdminViewModel>>(guests);
         }
+
 
         /// <summary>
         /// Metoda pozwalająca dodać gościa do bazy danych
@@ -36,10 +35,43 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <param name="phoneNumber"></param>
-        /// <param name="roomId"></param>
-        public void AddGuest(string firstName, string lastName, string phoneNumber, int roomId)
+        /// <param name="roomNumber"></param>
+        /// <param name="bookedIn"></param>
+        /// <param name="bookedOut"></param>
+        /// <param name="breakfast"></param>
+        /// <param name="lunch"></param>
+        /// <param name="dinner"></param>
+        /// <param name="gymAccess"></param>
+        /// <param name="spaAccess"></param>
+        /// <param name="poolAccess"></param>
+        /// <returns></returns>
+        public bool AddGuest(string firstName, string lastName, string phoneNumber, int roomNumber,
+            DateTime bookedIn, DateTime bookedOut, bool breakfast, bool lunch, bool dinner,
+            bool gymAccess, bool spaAccess, bool poolAccess)
         {
-            return;
+            GuestBooking booking = DbContext.GuestsBooking.SingleOrDefault
+                (g => g.BookedIn == bookedIn && g.BookedOut == bookedOut);
+            GuestCatering catering = DbContext.GuestsCatering.SingleOrDefault
+                (g => g.Breakfast == breakfast && g.Lunch == lunch && g.Dinner == dinner);
+            GuestAccess access = DbContext.GuestsAccess.SingleOrDefault
+                (g => g.GymAccess == gymAccess && g.SpaAccess == spaAccess && g.PoolAccess == poolAccess);
+
+            if (booking == null || catering == null || access == null)
+                return false;
+
+            Guest guestToAdd = new Guest()
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                PhoneNumber = phoneNumber,
+                RoomId = booking.Id,
+                GuestAccessId = access.Id,
+                GuestBookingId = booking.Id,
+                GuestCateringId = catering.Id
+            };
+
+            DbContext.Guests.Add(guestToAdd);
+            return DbContext.SaveChanges() > 0;
         }
 
 
@@ -47,10 +79,14 @@ namespace MikołajRarokZad4.Repositories
         /// Metoda pozwalająca na usunięcie gościa z bazy danych
         /// </summary>
         /// <param name="guestId"></param>
-        public void DeleteGuest(int guestId)
+        /// <returns></returns>
+        public bool DeleteGuest(int guestId)
         {
-            return;
+            Guest guest = DbContext.Guests.SingleOrDefault(b => b.Id == guestId);
+            DbContext.Guests.Remove(guest);
+            return DbContext.SaveChanges() > 0;
         }
+
 
         /// <summary>
         /// Metoda pozwalająca na edytowanie danych o gościu w bazie danych
@@ -59,10 +95,44 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <param name="phoneNumber"></param>
-        /// <param name="roomId"></param>
-        public void EditGuest(int guestId, string firstName, string lastName, string phoneNumber, int roomId)
+        /// <param name="roomNumber"></param>
+        /// <param name="bookedIn"></param>
+        /// <param name="bookedOut"></param>
+        /// <param name="breakfast"></param>
+        /// <param name="lunch"></param>
+        /// <param name="dinner"></param>
+        /// <param name="gymAccess"></param>
+        /// <param name="spaAccess"></param>
+        /// <param name="poolAccess"></param>
+        /// <returns></returns>
+        public bool EditGuest(int guestId, string firstName, string lastName, string phoneNumber, int roomNumber,
+            DateTime bookedIn, DateTime bookedOut, bool breakfast, bool lunch, bool dinner,
+            bool gymAccess, bool spaAccess, bool poolAccess)
         {
-            return;
+            Guest guest = DbContext.Guests.SingleOrDefault(b => b.Id == guestId);
+            if (guest == null)
+                return false;
+
+            GuestBooking booking = DbContext.GuestsBooking.SingleOrDefault
+                (g => g.BookedIn == bookedIn && g.BookedOut == bookedOut);
+            GuestCatering catering = DbContext.GuestsCatering.SingleOrDefault
+                (g => g.Breakfast == breakfast && g.Lunch == lunch && g.Dinner == dinner);
+            GuestAccess access = DbContext.GuestsAccess.SingleOrDefault
+                (g => g.GymAccess == gymAccess && g.SpaAccess == spaAccess && g.PoolAccess == poolAccess);
+
+            if (booking == null || catering == null || access == null)
+                return false;
+
+
+            guest.FirstName = firstName;
+            guest.LastName = lastName;
+            guest.PhoneNumber = phoneNumber;
+            guest.RoomId = booking.Id;
+            guest.GuestAccess = access;
+            guest.GuestBooking = booking;
+            guest.GuestCatering = catering;
+
+            return DbContext.SaveChanges() > 0;
         }
 
 
