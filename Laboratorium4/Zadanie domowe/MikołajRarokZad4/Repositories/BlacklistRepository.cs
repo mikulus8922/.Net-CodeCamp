@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MikołajRarokZad4.Models.Entities;
+using MikołajRarokZad4.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -19,16 +21,10 @@ namespace MikołajRarokZad4.Repositories
         /// czarnej listy
         /// </summary>
         /// <returns></returns>
-        public DataTable GetBlacklist()
+        public List<BlacklistViewModel> GetBlacklist()
         {
-
-
-
-
-            DataTable table = new DataTable();
-
-
-            return table;
+            List<GuestBlacklist> guestsBlacklist = DbContext.GuestsBlacklist.ToList();
+            return Mapper.Map<List<GuestBlacklist>, List<BlacklistViewModel>>(guestsBlacklist);
         }
 
         /// <summary>
@@ -37,18 +33,29 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <param name="phoneNumber"></param>
-        public void AddToBlacklist(string firstName, string lastName, string phoneNumber)
+        public bool AddToBlacklist(string firstName, string lastName, string phoneNumber)
         {
+            GuestBlacklist guestBlacklistToAdd = new GuestBlacklist()
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                PhoneNumber = phoneNumber
+            };
 
+            DbContext.GuestsBlacklist.Add(guestBlacklistToAdd);
+
+            return DbContext.SaveChanges() > 0;
         }
 
         /// <summary>
         /// Metoda pozwalająca usunąć osobę z czarnej listy
         /// </summary>
         /// <param name="blacklistId"></param>
-        public void RemoveFromBlacklist(int blacklistId)
+        public bool RemoveFromBlacklist(int blacklistId)
         {
-
+            GuestBlacklist guestBlacklist = DbContext.GuestsBlacklist.SingleOrDefault(b => b.Id == blacklistId);
+            DbContext.GuestsBlacklist.Remove(guestBlacklist);
+            return DbContext.SaveChanges() > 0;
         }
 
         /// <summary>
@@ -58,9 +65,17 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <param name="phoneNumber"></param>
-        public void EditBlacklistedPerson(int Id, string firstName, string lastName, string phoneNumber)
+        public bool EditBlacklistedPerson(int blacklistId, string firstName, string lastName, string phoneNumber)
         {
+            GuestBlacklist guestBlacklist = DbContext.GuestsBlacklist.SingleOrDefault(b => b.Id == blacklistId);
+            if (guestBlacklist == null)
+                return false;
 
+            guestBlacklist.FirstName = firstName;
+            guestBlacklist.LastName = lastName;
+            guestBlacklist.PhoneNumber = phoneNumber;
+
+            return DbContext.SaveChanges() > 0;
         }
     }
 }

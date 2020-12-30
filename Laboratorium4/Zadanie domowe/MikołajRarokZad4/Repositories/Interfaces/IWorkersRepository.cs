@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MikołajRarokZad4.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -18,21 +19,21 @@ namespace MikołajRarokZad4.Repositories
         /// tabelę przacowników
         /// </summary>
         /// <returns></returns>
-        DataTable GetWorkers();
+        List<WorkerViewModel> GetWorkers();
         
         /// <summary>
         /// Abstrakcyjna metoda dodania pracownika
         /// </summary>
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
-        /// <param name="workPosition"></param>
-        void AddWorker(string firstName, string lastName, string workPosition);
+        /// <param name="login"></param>
+        bool AddWorker(string firstName, string lastName, string login);
 
         /// <summary>
         /// Abstrakcyjna metoda usunięcia pracownika
         /// </summary>
         /// <param name="workerId"></param>
-        void DeleteWorker(int workerId);
+        bool DeleteWorker(int workerId);
 
         /// <summary>
         /// Abstrakcyjna metoda edycji danych o pracowniku
@@ -40,8 +41,7 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="workerId"></param>
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
-        /// <param name="workPosition"></param>
-        void EditWorker(int workerId, string firstName, string lastName, string workPosition);
+        bool EditWorker(int workerId, string firstName, string lastName);
 
     }
 }

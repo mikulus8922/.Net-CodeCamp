@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MikołajRarokZad4.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace MikołajRarokZad4.Repositories
         /// tabelę czarnej listy
         /// </summary>
         /// <returns></returns>
-        DataTable GetBlacklist();
+        List<BlacklistViewModel> GetBlacklist();
 
         /// <summary>
         /// Abstrakcyjna metoda dodania osoby do czarnej listy
@@ -26,13 +27,13 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <param name="phoneNumber"></param>
-        void AddToBlacklist(string firstName, string lastName, string phoneNumber);
+        bool AddToBlacklist(string firstName, string lastName, string phoneNumber);
 
         /// <summary>
         /// Abstrakcyjna metoda usunięcia osoby z czarnej listy
         /// </summary>
         /// <param name="blacklistId"></param>
-        void RemoveFromBlacklist(int blacklistId);
+        bool RemoveFromBlacklist(int blacklistId);
 
         /// <summary>
         /// Abstrakcyjna metoda edycji danych o osobie na czarnej liście
@@ -41,6 +42,6 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <param name="phoneNumber"></param>
-        void EditBlacklistedPerson(int Id, string firstName, string lastName, string phoneNumber);
+        bool EditBlacklistedPerson(int blacklistId, string firstName, string lastName, string phoneNumber);
     }
 }

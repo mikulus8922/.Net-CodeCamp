@@ -16,10 +16,19 @@
                         LastName = c.String(nullable: false, maxLength: 50),
                         PhoneNumber = c.String(nullable: false, maxLength: 50),
                         RoomId = c.Int(nullable: false),
+                        GuestAccessId = c.Int(nullable: false),
+                        GuestBookingId = c.Int(nullable: false),
+                        GuestCateringId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.GuestAccesses", t => t.GuestAccessId, cascadeDelete: true)
+                .ForeignKey("dbo.GuestBookings", t => t.GuestBookingId, cascadeDelete: true)
+                .ForeignKey("dbo.GuestCaterings", t => t.GuestCateringId, cascadeDelete: true)
                 .ForeignKey("dbo.Rooms", t => t.RoomId, cascadeDelete: true)
-                .Index(t => t.RoomId);
+                .Index(t => t.RoomId)
+                .Index(t => t.GuestAccessId)
+                .Index(t => t.GuestBookingId)
+                .Index(t => t.GuestCateringId);
             
             CreateTable(
                 "dbo.GuestAccesses",
@@ -29,11 +38,8 @@
                         GymAccess = c.Boolean(nullable: false),
                         SpaAccess = c.Boolean(nullable: false),
                         PoolAccess = c.Boolean(nullable: false),
-                        GuestId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Guests", t => t.GuestId, cascadeDelete: true)
-                .Index(t => t.GuestId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.GuestBookings",
@@ -42,11 +48,8 @@
                         Id = c.Int(nullable: false, identity: true),
                         BookedIn = c.DateTime(nullable: false),
                         BookedOut = c.DateTime(nullable: false),
-                        GuestId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Guests", t => t.GuestId, cascadeDelete: true)
-                .Index(t => t.GuestId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.GuestCaterings",
@@ -56,11 +59,8 @@
                         Breakfast = c.Boolean(nullable: false),
                         Lunch = c.Boolean(nullable: false),
                         Dinner = c.Boolean(nullable: false),
-                        GuestId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Guests", t => t.GuestId, cascadeDelete: true)
-                .Index(t => t.GuestId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Rooms",
@@ -114,13 +114,13 @@
         {
             DropForeignKey("dbo.Workers", "AccountId", "dbo.WorkerLoginDatas");
             DropForeignKey("dbo.Guests", "RoomId", "dbo.Rooms");
-            DropForeignKey("dbo.GuestCaterings", "GuestId", "dbo.Guests");
-            DropForeignKey("dbo.GuestBookings", "GuestId", "dbo.Guests");
-            DropForeignKey("dbo.GuestAccesses", "GuestId", "dbo.Guests");
+            DropForeignKey("dbo.Guests", "GuestCateringId", "dbo.GuestCaterings");
+            DropForeignKey("dbo.Guests", "GuestBookingId", "dbo.GuestBookings");
+            DropForeignKey("dbo.Guests", "GuestAccessId", "dbo.GuestAccesses");
             DropIndex("dbo.Workers", new[] { "AccountId" });
-            DropIndex("dbo.GuestCaterings", new[] { "GuestId" });
-            DropIndex("dbo.GuestBookings", new[] { "GuestId" });
-            DropIndex("dbo.GuestAccesses", new[] { "GuestId" });
+            DropIndex("dbo.Guests", new[] { "GuestCateringId" });
+            DropIndex("dbo.Guests", new[] { "GuestBookingId" });
+            DropIndex("dbo.Guests", new[] { "GuestAccessId" });
             DropIndex("dbo.Guests", new[] { "RoomId" });
             DropTable("dbo.WorkerLoginDatas");
             DropTable("dbo.Workers");

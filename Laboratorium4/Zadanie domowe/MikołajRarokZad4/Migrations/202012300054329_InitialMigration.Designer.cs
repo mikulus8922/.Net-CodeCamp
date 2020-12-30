@@ -13,7 +13,7 @@ namespace MikołajRarokZad4.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202012292145435_InitialMigration"; }
+            get { return "202012300054329_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

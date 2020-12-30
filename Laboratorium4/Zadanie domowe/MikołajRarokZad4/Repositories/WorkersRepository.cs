@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MikołajRarokZad4.Models.Entities;
+using MikołajRarokZad4.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -19,12 +21,10 @@ namespace MikołajRarokZad4.Repositories
         /// pracownikami
         /// </summary>
         /// <returns></returns>
-        public DataTable GetWorkers()
+        public List<WorkerViewModel> GetWorkers()
         {
-            DataTable table = new DataTable();
-
-
-            return table;
+            List<Worker> workers = DbContext.Workers.ToList();
+            return Mapper.Map<List<Worker>, List<WorkerViewModel>>(workers);
         }
 
         /// <summary>
@@ -32,9 +32,24 @@ namespace MikołajRarokZad4.Repositories
         /// </summary>
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
-        /// <param name="workPosition"></param>
-        public void AddWorker(string firstName, string lastName, string workPosition)
+        /// <param name="login"></param>
+        public bool AddWorker(string firstName, string lastName, string login)
         {
+            WorkerLoginData workerLogin = DbContext.WorkersLoginData.SingleOrDefault(w => w.Login == login);
+
+            if (workerLogin == null)
+                return false;
+
+            Worker workerToAdd = new Worker()
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                AccountId = workerLogin.Id
+            };
+
+            DbContext.Workers.Add(workerToAdd);
+
+            return DbContext.SaveChanges() > 0;
 
         }
 
@@ -42,9 +57,11 @@ namespace MikołajRarokZad4.Repositories
         /// Metoda pozwalająca na usunięcie pracownika z bazy danych
         /// </summary>
         /// <param name="workerId"></param>
-        public void DeleteWorker(int workerId)
+        public bool DeleteWorker(int workerId)
         {
-
+            Worker worker = DbContext.Workers.SingleOrDefault(w => w.Id == workerId);
+            DbContext.Workers.Remove(worker);
+            return DbContext.SaveChanges() > 0;
         }
 
 
@@ -54,11 +71,16 @@ namespace MikołajRarokZad4.Repositories
         /// <param name="workerId"></param>
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
-        /// <param name="workPosition"></param>
-        public void EditWorker(int workerId, string firstName, string lastName, string workPosition)
+        public bool EditWorker(int workerId, string firstName, string lastName)
         {
+            Worker worker = DbContext.Workers.SingleOrDefault(w => w.Id == workerId);
+            if (worker == null)
+                return false;
 
+            worker.FirstName = firstName;
+            worker.LastName = lastName;
 
+            return DbContext.SaveChanges() > 0;
         }
     }
 }

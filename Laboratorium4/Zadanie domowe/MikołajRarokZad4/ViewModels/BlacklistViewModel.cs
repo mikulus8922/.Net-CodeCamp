@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.ViewModels
 {
-    class BlacklistViewModel
+    public class BlacklistViewModel
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MikołajRarokZad4.Models.Entities;
+using MikołajRarokZad4.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -15,14 +17,10 @@ namespace MikołajRarokZad4.Repositories
     public class RoomsRepository : Repository, IRoomsRepository
     {
 
-        public DataTable GetRooms()
+        public List<RoomViewModel> GetRooms()
         {
-            DataTable table = new DataTable();
-
-
-
-
-            return table;
+            List<Room> rooms = DbContext.Rooms.ToList();
+            return Mapper.Map<List<Room>, List<RoomViewModel>>(rooms);
         }
 
 
@@ -32,9 +30,15 @@ namespace MikołajRarokZad4.Repositories
         /// </summary>
         /// <param name="roomId"></param>
         /// <param name="roomCapacity"></param>
-        public void EditRoomCapacity(int roomId, int roomCapacity)
+        public bool EditRoomCapacity(int roomId, int roomCapacity)
         {
+            Room room = DbContext.Rooms.SingleOrDefault(b => b.Id == roomId);
+            if (room == null)
+                return false;
 
+            room.RoomCapacity = roomCapacity;
+
+            return DbContext.SaveChanges() > 0;
         }
 
 

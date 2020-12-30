@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.ViewModels
 {
-    class RoomViewModel
+    public class RoomViewModel
     {
         public int Id { get; set; }
         public int Number { get; set; }

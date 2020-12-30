@@ -20,5 +20,8 @@ namespace MikołajRarokZad4.Repositories
         /// 
         /// <returns></returns>
         string Login(string login, string password);
+
+
+        bool Register(string login, string password, string workPosition);
     }
 }

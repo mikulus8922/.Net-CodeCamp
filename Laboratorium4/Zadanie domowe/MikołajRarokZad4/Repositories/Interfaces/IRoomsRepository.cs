@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MikołajRarokZad4.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -18,13 +19,13 @@ namespace MikołajRarokZad4.Repositories
         /// tabelę pokoi
         /// </summary>
         /// <returns></returns>
-        DataTable GetRooms();
+        List<RoomViewModel> GetRooms();
 
         /// <summary>
         /// Metoda pozwalająca zmienić ile w danym pokoju jest miejsc
         /// </summary>
         /// <param name="roomId"></param>
         /// <param name="roomCapacity"></param>
-        void EditRoomCapacity(int roomId, int roomCapacity);
+        bool EditRoomCapacity(int roomId, int roomCapacity);
     }
 }

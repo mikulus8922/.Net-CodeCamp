@@ -26,17 +26,35 @@ namespace MikołajRarokZad4.Models.Entities
         [MaxLength(50)]
         public string PhoneNumber { get; set; }
 
+
         [Required]
         public int RoomId { get; set; }
 
         [ForeignKey("RoomId")]
         public virtual Room Room { get; set; }
 
-        public virtual ICollection<GuestAccess> GuestsAccess { get; set; }
 
-        public virtual ICollection<GuestBooking> GuestsBooking { get; set; }
+        [Required]
+        public int GuestAccessId { get; set; }
 
-        public virtual ICollection<GuestCatering> GuestsCatering { get; set; }
+        [ForeignKey("GuestAccessId")]
+        public virtual GuestAccess GuestAccess { get; set; }
+
+
+        [Required]
+        public int GuestBookingId { get; set; }
+
+        [ForeignKey("GuestBookingId")]
+        public virtual GuestBooking GuestBooking { get; set; }
+
+
+        [Required]
+        public int GuestCateringId { get; set; }
+
+        [ForeignKey("GuestCateringId")]
+        public virtual GuestCatering GuestCatering { get; set; }
+
+
 
     }
 }

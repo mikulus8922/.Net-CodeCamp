@@ -22,12 +22,8 @@ namespace MikołajRarokZad4.Models.Entities
         [Required]
         public bool Dinner { get; set; }
 
-        [Required]
-        public int GuestId { get; set; }
 
-        [ForeignKey("GuestId")]
-        public virtual Guest Guest { get; set; }
+        public virtual ICollection<Guest> Guests { get; set; }
 
-        
     }
 }

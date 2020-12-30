@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad4.ViewModels
 {
-    class GuestCateringViewModel
+    public class GuestCateringViewModel
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
