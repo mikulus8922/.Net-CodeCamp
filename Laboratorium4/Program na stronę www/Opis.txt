@@ -1,0 +1,52 @@
+Tak jak w zadaniu z poprzedniego tygodnia
+program hotel pozwala na wyświetlanie i operacje na danych
+zapisanych w bazie danych
+
+Tym razem program korzysta z entityframework
+
+Po włączeniu programu wyświetli się okno logowania/rejestracji.
+W zależności od tego jako kto się zalogujemy program 
+otworzy inne okienko z różnymi fukncjonalnościami.
+
+Przy rejestracji jako stanowisko należy podać jedną z opcji:
+SystemAdmin lub Owner
+Receptionist
+CateringManager
+
+SystemAdmin/Owner
+interfejs z pełną funkjonalnością pozwalający na
+wyświetlanie dodawanie usuwanie i edytowanie
+gości pokoi pracowników i osób na czarnej liście
+
+Receptionist
+interfejs pozwalający na prawie to samo co poprzedni
+z wyłączeniem operacji na tabeli pracowników
+
+CateringManager
+interfejs pozwalający na wyświetlenie podstawowych
+informacji o gościach (informacje podstawowe i tylko
+dane o cateringu)
+
+Naciśnięie przycisku wyświetlenia załaduje odpowiednią
+tabelę do DataGridView
+
+Po wpisaniu do textBoxów odpowiednich danych jesteśmy
+w stanie modyfikować dane w bazie danych.
+
+-------------------------------------------
+
+Niestety dość późno zabrałem się za pisanie programu i przez to nie zdążyłem
+przerobić interfejsu (funkcje w klasach "repository" są w pełni napisane)
+aby dział z nieco zmienioną tabelą gości. 
+Bazę danych gości można niestety jedynie wyświetlić.
+
+W związku że z definicji baza danych jest tworzona dopiero przy uruchamianiu
+programu, program nie jest wypełniony danymi co w połączeniu z poprzednią
+uwagą zmusza nas do wypełnienia tabeli gości wraz z tabelami z nią powiązanymi 
+za pomocą komend sql po wygenerowaniu bazy danych.
+
+Pozostałe tabele to jest: Czarna lista, Pracownicy, Dane logowania, Pokoje; 
+powinny mieć pełną funkcjonalność
+
+
+
