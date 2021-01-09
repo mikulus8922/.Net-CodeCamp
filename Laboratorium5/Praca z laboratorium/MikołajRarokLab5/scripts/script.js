@@ -22,7 +22,7 @@ function ResetTimes() {
 
 // Rozpoczęcie oczekiwania na pomiar czasu
 function StartIdle() {
-    document.getElementById("button-timer").src = "images/buttonBlue.png";
+    document.getElementById("button-timer").src = "Images/buttonBlue.png";
     document.getElementById("button-timer").onclick = FalseStart;
 
     if (trialCounter > howManyTrials - 1) {
@@ -39,7 +39,7 @@ function StartIdle() {
 
 // Rozpoczęcie pomiaru czasu
 function StartTimer() {
-    document.getElementById("button-timer").src = "images/buttonGreen.png";
+    document.getElementById("button-timer").src = "Images/buttonGreen.png";
     document.getElementById("button-timer").onclick = StopTimer;
     trialStart = new Date().getTime();
 }
@@ -53,7 +53,7 @@ function FalseStart() {
 
 // Zakończenie pomiaru czasu reakcji
 function StopTimer() {
-    document.getElementById("button-timer").src = "images/buttonRed.png";
+    document.getElementById("button-timer").src = "Images/buttonRed.png";
     document.getElementById("button-timer").onclick = StartIdle;
 
     trialEnd = new Date().getTime() - trialStart;
@@ -72,7 +72,6 @@ function StopTimer() {
     UpdateTable(average);
 }
 
-//Funkcja aktualizujaca tabelę z wynikami
 function UpdateTable(average) {
     document.getElementById("times-table").innerHTML = "";
 
@@ -96,4 +95,3 @@ function UpdateTable(average) {
         '<td> ' + average + ' ms </td>' +
         '</tr>';
 }
-
