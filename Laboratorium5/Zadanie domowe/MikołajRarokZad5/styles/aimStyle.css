@@ -1,0 +1,79 @@
+﻿/* Styl całej strony */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styl całego ciała strony */
+body {
+    color: black;
+    display: flex;
+    font-family: sans-serif;
+    justify-content: center;
+}
+
+/* Styl głównej sekcji stronu */
+.container {
+    background-color: beige;
+    margin: 50px;
+    padding: 50px;
+    border-radius: 25px;
+}
+
+/* Styl tytułu */
+.title {
+    text-align: center;
+}
+
+/* Styl licznika */
+.status-action {
+    display: flex;
+    margin-top: 25px;
+    font-size: 25px;
+    justify-content: space-around;
+    height: 30px;
+}
+
+/* Styl przycisku "reset" */
+.reset {
+    cursor: pointer;
+}
+
+/* Styl tablicy gry */
+.game-grid {
+    background-color: beige;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 5px;
+    margin-top: 50px;
+}
+
+/* Styl jednej komórki */
+.game-cell {
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+}
+
+
+/* Styl zaznaczonej komórki */
+.x::after {
+    content: '×';
+    font-size: 100px;
+}
+
+
+/* Styl przycisku powrotu */
+#go-back-button {
+    align-self:center;
+    display: flex;
+    justify-content: center;
+    padding: 16px 32px;
+    margin-top: 50px;
+}

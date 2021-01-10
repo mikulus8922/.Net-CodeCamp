@@ -92,20 +92,17 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\buttonBlue.png" />
-    <Content Include="images\buttonGreen.png" />
-    <Content Include="images\buttonRed.png" />
+    <Content Include="Aim.html" />
+    <Content Include="images\aim.png" />
     <Content Include="images\Snake.jpg" />
     <Content Include="images\wasd_arrows.jpg" />
     <Content Include="Index.html" />
+    <Content Include="scripts\aimScript.js" />
     <Content Include="Snake.html" />
     <Content Include="scripts\snakeScript.js" />
+    <Content Include="styles\aimStyle.css" />
     <Content Include="styles\indexStyle.css" />
     <Content Include="styles\snakeStyle.css" />
-    <Content Include="test\test.html" />
-    <Content Include="test\test2.html" />
-    <Content Include="test\test3.html" />
-    <Content Include="test\TicTacToe.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -155,9 +152,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="pages\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

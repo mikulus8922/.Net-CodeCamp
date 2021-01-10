@@ -1,0 +1,18 @@
+Program zawiera stronę główną i dwie podstrony będące
+znanymi minigierkami.
+
+Pierwszą z minigierek jest snake.
+Kod gry jest bazowany na kodzie z filmu:
+https://www.youtube.com/watch?v=xGmXxpIj6vs
+Dodatkowo zostały napisane do niego poprawki
+aby nie dało się ruszyć w stronę przeciwną
+do obecnego kierunku ruchu i aby jakbłka
+nie pojawiały się na ogonie węża.
+
+Drugą minigierką to coś w stylu "AimTrainera"
+ze strony human benchmark.
+Po wciśnięciu przycisku start/reset gracz ma 15 sekund
+na kliknięcie jak największej ilości losowo generowanych celów.
+W celu zrozumienia układu i logiki tego typu gry
+bazowałem na kodzie programu tworzącego kółko i krzyżyk
+https://github.com/angle943/tic-tac-toe

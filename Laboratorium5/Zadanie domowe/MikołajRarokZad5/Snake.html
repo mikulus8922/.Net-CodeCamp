@@ -8,19 +8,28 @@
 
 
 <body>
+    <!-- nagłówek -->
     <header>
         Snake!
     </header>
 
+    <!-- główna sekcja -->
     <section>
 
+        <!-- sekcja z tytułem-->
         <div id="description">
             Eat apples to grow and avoid your own tail
         </div>
 
+        <!-- sekcja z grą -->
         <div class="left-side">
             <p class="center">
                 <canvas id="gc" width="400" height="400"></canvas>
+                <!-- Całość skryptu załączam w htmlu
+                bo przez 4 godziny mimo przekopania połowy
+                internetu nie byłem w stanie wymyślić 
+                jak podłączyć skrypt z innego
+                pliku do obiektu "canvas"-->
                 <script>
                     window.onload = function initialize() {
                         canv = document.getElementById("gc");
@@ -152,11 +161,12 @@
             </p>
         </div>
 
+        <!-- sekcja z opisem gry -->
         <div class="right-side">
 
             <p id="game-info">Use</p>
             <p id="game-info">
-            <img src="images/wasd_arrows.jpg" />
+                <img src="images/wasd_arrows.jpg" />
             </p>
             <p id="game-info">to play!</p>
 
@@ -164,8 +174,8 @@
                 <button id="go-back-button" onclick="window.location.href = '/Index.html'">Main Page</button>
             </p>
         </div>
-
-        <script src="scripts/snakeScript"> </script>
+        <!-- podłączenie skryptu do strony-->
+        <script src="scripts/snakeScript"></script>
     </section>
 </body>
 </html>

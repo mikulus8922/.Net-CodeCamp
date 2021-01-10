@@ -49,12 +49,16 @@ section p {
     color: greenyellow;
 }
 
+/* Styl opisu gry*/
 #game-info {
     margin-top: 10px;
     font-size: 20px;
     color: black;
 }
 
+/*Styl przycisku pozwalającego na powrót
+    do strony głównej
+*/
 #go-back-button {
     padding: 16px 32px;
     margin-top: 100px;
