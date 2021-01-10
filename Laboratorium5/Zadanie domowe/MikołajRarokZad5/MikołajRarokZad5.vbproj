@@ -92,7 +92,20 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="pages\HtmlPage1.html" />
+    <Content Include="images\buttonBlue.png" />
+    <Content Include="images\buttonGreen.png" />
+    <Content Include="images\buttonRed.png" />
+    <Content Include="images\Snake.jpg" />
+    <Content Include="images\wasd_arrows.jpg" />
+    <Content Include="Index.html" />
+    <Content Include="Snake.html" />
+    <Content Include="scripts\snakeScript.js" />
+    <Content Include="styles\indexStyle.css" />
+    <Content Include="styles\snakeStyle.css" />
+    <Content Include="test\test.html" />
+    <Content Include="test\test2.html" />
+    <Content Include="test\test3.html" />
+    <Content Include="test\TicTacToe.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -143,8 +156,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="scripts\" />
-    <Folder Include="styles\" />
+    <Folder Include="pages\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
