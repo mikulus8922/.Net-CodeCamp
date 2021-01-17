@@ -1,0 +1,22 @@
+﻿@model List<MikołajRarokZad6.Models.AnimalViewModel>
+
+<!-- Widok odpowiedzialny za wyświetlenie wszystkich psów -->
+
+<h1>All Dogs!</h1>
+
+@foreach (var animal in Model)
+    @if(animal.IsADog == true)
+    {
+        <div>
+            <h2>
+                @animal.AnimalName
+            </h2>
+            <h3>
+                Breed: @animal.Breed
+            </h3>
+            <h4>
+                Owners name: @animal.OwnerName
+            </h4>
+            <img src="@Url.Content(animal.PicturePath)" alt="@animal.AnimalName" />
+        </div>
+    }

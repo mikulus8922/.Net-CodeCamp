@@ -1,0 +1,16 @@
+Wykonany program jest wzorowany na programie
+który wykonywaliśmy na zajęciach, jednak jego motywem
+przewodnim są psy i koty.
+
+Po odpaleniu na stronie pojawi się formularz pytający
+o imię i nazwisko po jego uzupełnieniu zostaniemy
+przeniesieni na stronę główna zawierającą powitanie
+z naszymi danymi.
+
+Na stronie głównej możemy wybrać kilka opcji
+wyświetlenia naszych danych to jest:
+Wyświetlić wszystkie zwierzęta
+Wyświetlic psy
+Wyświetlić koty
+oraz wyświetlić dane o konkretnym zwierzaku
+którego wybieramy z wyświetlonej listy ras.

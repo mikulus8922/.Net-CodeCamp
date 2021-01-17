@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Strona główna zawierająca powitanie i listę podstron -->
+
+<div class="jumbotron">
+    <h1>Page about dogs and cats</h1>
+    <h2>Hello @ViewBag.UserName!</h2>
+    <ul>
+        <li>
+            @Html.ActionLink("Show All Animals", "GetAllAnimals", "Home")
+        </li>
+
+        <li>
+            @Html.ActionLink("Show All Dogs", "GetAllDogs", "Home")
+        </li>
+
+        <li>
+            @Html.ActionLink("Show All Cats", "GetAllCats", "Home")
+        </li>
+
+        <li>
+            @Html.ActionLink("Choose an animal by breed", "GetListOfBreeds", "Home")
+        </li>
+    </ul>
+</div>

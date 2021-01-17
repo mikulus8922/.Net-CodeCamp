@@ -1,0 +1,19 @@
+﻿@model AnimalViewModel
+
+<!-- Widok odpowiedzialny za wyświetlenie zwierzaka o odpowiedniej rasie -->
+
+
+<div>
+    <div>
+        <h2>
+            @Model.AnimalName
+        </h2>
+        <h3>
+            Breed: @Model.Breed
+        </h3>
+        <h4>
+            Owners name: @Model.OwnerName
+        </h4>
+        <img src="@Url.Content(Model.PicturePath)" alt="@Model.AnimalName" />
+    </div>
+</div>

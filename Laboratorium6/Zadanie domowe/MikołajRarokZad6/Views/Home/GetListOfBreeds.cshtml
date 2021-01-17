@@ -1,0 +1,14 @@
+﻿@model List<string>
+
+<!-- Widok odpowiedzialny za wyświetlenie ras wszystkich zwierząt -->
+
+<h1>Animal breeds to choose</h1>
+
+<ul>
+    @foreach (var animalBreed in Model)
+    {
+        <li>
+            @Html.ActionLink(animalBreed, "GetAnimalByBreed", "Home", new { selectedBreed = animalBreed }, null)
+        </li>
+    }
+</ul>
