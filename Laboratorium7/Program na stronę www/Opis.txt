@@ -1,0 +1,15 @@
+Program prezentuje działanie API,
+zawiera prototypową implementację (w kodzie)
+bazy danych magazynów i rodzajów nasion do nich przypisanych.
+
+Kontrolery:
+seed, warehouse
+
+Do każdego kontrolera zostały napisane odpowiednie operacje
+GET, POST, PUT, DELETE wraz z logiką i odpowiednimi 
+odpowiedziami HTTP.
+
+Przykładowa operacja GET:
+https://localhost:44387/api/seed
+
+Screeny pochodzą z programu do testowania API - Postman
