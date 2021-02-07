@@ -1,0 +1,3 @@
+Program ma być narzędziem służącym do składania
+zamówień na burgery i różne dodatki do zamówienia.
+W tym celu wykorzystano wzorzec projektowy "decorator".
