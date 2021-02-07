@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BurgerElements\Burger.cs" />
+    <Compile Include="BurgerElements\BurgerBBQ.cs" />
+    <Compile Include="BurgerElements\BurgerChicken.cs" />
+    <Compile Include="BurgerElements\BurgerStandard.cs" />
     <Compile Include="BurgerElements\IBurger.cs" />
     <Compile Include="Decorators\BurgerDecorator.cs" />
     <Compile Include="Decorators\ConcreteDecorators\FriesDecorator.cs" />

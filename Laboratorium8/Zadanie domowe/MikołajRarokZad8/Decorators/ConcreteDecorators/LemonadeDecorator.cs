@@ -7,10 +7,21 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad8.Decorators.ConcreteDecorators
 {
+    /// <summary>
+    /// Dekorator dodający lemoniadę do zamówienia
+    /// </summary>
     public class LemonadeDecorator : BurgerDecorator
     {
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
+        /// <param name="burger"></param>
         public LemonadeDecorator(IBurger burger) : base(burger) { }
 
+        /// <summary>
+        /// Funkcja dodająca lemoniadę do zamówienia
+        /// </summary>
+        /// <returns></returns>
         public override string GetBurgerType()
         {
             string type = base.GetBurgerType();

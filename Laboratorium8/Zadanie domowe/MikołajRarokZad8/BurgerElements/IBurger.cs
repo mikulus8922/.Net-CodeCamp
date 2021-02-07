@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MikołajRarokZad8.BurgerElements
 {
+    /// <summary>
+    /// Interfejs burgera
+    /// </summary>
     public interface IBurger
     {
         string GetBurgerType();
