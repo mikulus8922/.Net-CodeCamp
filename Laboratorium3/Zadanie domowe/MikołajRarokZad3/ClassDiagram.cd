@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MikołajRarokZad3.Forms.FormAdmin">
+    <Position X="31.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KUYCAhYAI6whIGmQABLFJgACJrJgIWMABGCYKEABRkY=</HashCode>
+      <FileName>Forms\FormAdmin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MikołajRarokZad3.Forms.FormCatering" Collapsed="true">
+    <Position X="27.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAyAAAAAAABCAAAACAAAAAAAAAAAACAAAAAg=</HashCode>
+      <FileName>Forms\FormCatering.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MikołajRarokZad3.Forms.FormLogin" Collapsed="true">
+    <Position X="29" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAJACAAAAAAAACAAAYSAAAAAAAAAQAAAAAACAA=</HashCode>
+      <FileName>Forms\FormLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MikołajRarokZad3.Forms.FormReception">
+    <Position X="24" Y="7" Width="3" />
+    <TypeIdentifier>
+      <HashCode>KUYCAhIAI6whIGGQABKEJgACAIJAIWIABGCYKAABQkI=</HashCode>
+      <FileName>Forms\FormReception.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MikołajRarokZad3.Repositories.BlacklistRepository">
+    <Position X="20.75" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AACABAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Repositories\BlacklistRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MikołajRarokZad3.Repositories.GuestsRepositoryCatering">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQCAAAAAAAAACAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\GuestRepositoryCatering.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MikołajRarokZad3.Repositories.GuestsRepositoryReception">
+    <Position X="14" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQCAAAAAAAAACAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\GuestRepositoryReception.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MikołajRarokZad3.Repositories.GuestsRepositoryAdmin">
+    <Position X="18.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQCAAAAAAAAACAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\GuestsRepositoryAdmin.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MikołajRarokZad3.Repositories.Repository">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Repository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MikołajRarokZad3.Repositories.RoomsRepository">
+    <Position X="23" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\RoomsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MikołajRarokZad3.Repositories.UsersRepository">
+    <Position X="11.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Repositories\UsersRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MikołajRarokZad3.Repositories.WorkersRepository">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAIAAAAACAAAA=</HashCode>
+      <FileName>Repositories\WorkersRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MikołajRarokZad3.Program">
+    <Position X="17.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="MikołajRarokZad3.Repositories.IBlacklistRepository">
+    <Position X="25.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACABAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Repositories\Interfaces\IBlacklistRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MikołajRarokZad3.Repositories.IGuestsRepository">
+    <Position X="27.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQCAAAAAAAAACAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Interfaces\IGuestsRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MikołajRarokZad3.Repositories.IRoomsRepository" Collapsed="true">
+    <Position X="29" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Interfaces\IRoomsRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MikołajRarokZad3.Repositories.IUsersRepository">
+    <Position X="25.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Repositories\Interfaces\IUsersRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MikołajRarokZad3.Repositories.IWorkersRepository">
+    <Position X="27.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAIAAAAACAAAA=</HashCode>
+      <FileName>Repositories\Interfaces\IWorkersRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
